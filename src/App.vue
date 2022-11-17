@@ -1,30 +1,28 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="relative w-screen h-screen overflow-x-hidden">
+    <div
+      class="inset-0 absolute bg-green-700 flex items-center justify-center"
+      v-if="tick"
+    >
+      <LoadingScreen />
+    </div>
+    <div class="w-full h-full bg-[rgb(240,240,240)]" v-else>
+      <NavBar />
+      <router-view />
+    </div>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script setup lang="ts">
+import NavBar from './views/NavBar.vue'
+import { onMounted, ref } from 'vue'
+import LoadingScreen from './views/LoadingScreen.vue'
 
-nav {
-  padding: 30px;
-}
+const tick = ref<boolean>(false)
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+// onMounted(() => {
+//   setTimeout(() => {
+//     tick.value = true
+//   }, 1000)
+// })
+</script>
