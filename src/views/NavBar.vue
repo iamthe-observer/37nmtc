@@ -1,31 +1,22 @@
 <template>
-  <div class="relative top-0 left-0 right-0 z-50">
-    <div
-      class="bg-white py-3 flex items-center min-h-16 justify-between"
-      ref="navbar"
-    >
-      <!-- NMTC LOGO -->
-      <main
-        class="rounded-lg w-[18em] px-2 py-1 h-full bg-white text-black flex items-center text-center transition-all duration-200 hover:bg-white hover:shadow-lg hover:scale-105 cursor-pointer"
-      >
-        <img src="../assets/logo.png" class="w-20 aspect-auto" />
-        <span class="text-sm font-bold"
-          >37 Nursing and MidWifery Training College</span
-        >
-      </main>
+  <nav
+    class="h-36 w-full absolute top-0 flex flex-col items-center bg-gradient-to-b from-black to-transparent z-50"
+  >
+    <div class="py-2 text-white w-full flex justify-between">
+      <h1 class="pl-6 font-bold text-2xl flex gap-2 items-center">
+        <img
+          src=""
+          alt=""
+          class="w-8 h-8 rounded-md border-2 border-white"
+        /><span>37NMTC</span>
+      </h1>
 
-      <!-- ACTIONS -->
-      <div class="flex gap-3 mr-10">
-        <button class="btn bg-[#85081d] text-white border-none">Student</button>
-        <button class="btn bg-[#85081d] text-white border-none">Staff</button>
-      </div>
+      <div class=""><RouterLinks class="text-sm" :links="top_links" /></div>
     </div>
-    <!-- ROUTER LINKS -->
-    <RouterLinks
-      class="px-20 bg-[#85081d] w-full justify-between shadow-xl"
-      :links="links"
-    />
-  </div>
+    <div class="flex items-center">
+      <RouterLinks class="text-2xl" :links="bottom_links" />
+    </div>
+  </nav>
 </template>
 
 <script setup lang="ts">
@@ -33,7 +24,7 @@ import RouterLinks from '@/components/RouterLinks.vue'
 import { ref } from 'vue'
 import { LinkData } from '@/interfaces'
 
-const links = ref<LinkData[]>([
+const top_links = ref<LinkData[]>([
   {
     name: 'Home',
     route: '/',
@@ -70,4 +61,110 @@ const links = ref<LinkData[]>([
     hasDropdown: true,
   },
 ])
+const bottom_links = ref<LinkData[]>([
+  {
+    name: 'Home',
+    route: '/',
+    hasDropdown: false,
+  },
+  {
+    name: 'About Us',
+    route: '/',
+    hasDropdown: true,
+  },
+  {
+    name: 'Academics',
+    route: '/',
+    hasDropdown: true,
+  },
+  {
+    name: 'Admission',
+    route: '/',
+    hasDropdown: true,
+  },
+  {
+    name: 'Students',
+    route: '/',
+    hasDropdown: true,
+  },
+  {
+    name: 'Latest News',
+    route: '/',
+    hasDropdown: true,
+  },
+  {
+    name: 'Contact Us',
+    route: '/',
+    hasDropdown: true,
+  },
+])
 </script>
+
+<style scoped>
+.nav_bar {
+  top: 0;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(226, 226, 226, 0.384);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  min-width: max-content;
+}
+
+.logo {
+  width: 50px;
+  border-radius: 50px;
+}
+
+.my_name {
+  font-size: 1.2em;
+}
+
+.avatar_img {
+  width: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  aspect-ratio: 1;
+  transition: all 0.2s ease-out;
+  outline: 1px solid rgb(209, 209, 209);
+}
+
+.avatar_img:hover {
+  outline: 10px solid rgb(209, 209, 209);
+}
+
+.head_name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav_links {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  list-style: none;
+  justify-content: space-evenly;
+  gap: 15px;
+}
+
+.link:hover {
+  color: rgb(189, 189, 189);
+}
+
+.link {
+  transition: all 0.2s linear;
+  text-decoration: none;
+  color: black;
+}
+
+.login_btn,
+.register_btn {
+  background: black;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+</style>
