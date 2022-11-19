@@ -5,20 +5,76 @@
     <div
       class="[margin-top:100vh] py-3 px-2 bg-white flex flex-col items-center"
     >
-      <h1 v-motion-pop-visible class="text-4xl mt-6 mb-3">
+      <h1 v-motion-slide-visible-once-bottom class="text-4xl mt-6 mb-3">
         Welcome to 37 Nursing and Training College
       </h1>
 
-      <span
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam in
-        esse commodi quae nulla assumenda veniam debitis unde incidunt velit
-        nisi, neque cupiditate accusantium. Id et officia dolore animi
-        error!</span
-      >
+      <!-- about school; init information -->
+      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full">
+        <n-card
+          :bordered="false"
+          v-for="(data, i) in init_info"
+          :title="data.title"
+          :key="i"
+          >{{ data.body }}</n-card
+        >
+      </div>
+
+      <!-- divider -->
+      <div class="divider"></div>
+
+      <!-- Our Programmes -->
+
+      <h3>Our Programmes</h3>
+      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full">
+        <n-card
+          :key="i"
+          :bordered="false"
+          v-for="(data, i) in program_info"
+          :title="data.title"
+          >{{ data.body }}</n-card
+        >
+      </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { NCard } from 'naive-ui'
 
-<style scoped></style>
+const program_info = [
+  {
+    title: 'Registered Gen. Nursing',
+    body: 'The programme is to enable 37 NMTC to produce qualified professional nurses who will contribute creditably to the health care delivery in Ghana.',
+  },
+  {
+    title: 'Registered Midwifery',
+    body: 'The RM has courses of study leading to a Diploma certification. It has a six (6) semester course structure.',
+  },
+  {
+    title: 'Accreditation',
+    body: 'TThe college has a renewable accreditation with the National Accreditation Board (NAB) to provide three-year diploma courses in Registered General Nursing and Midwifery.',
+  },
+]
+
+const init_info = [
+  {
+    title: 'History',
+    body: "The 37 Nursing and Midwifery Training College, a training wing ot the 37 Military Hospital, was established as a department in July 1941, the same year the main hospital was built. The college was then known as Nursing Orderlies' Training Wing (NOTW).",
+  },
+  {
+    title: 'Vision Statement',
+    body: 'To be the best Military Health Training Institution in West Africa, relying on efficient and effective workforce, using appropriate tecnnology witn tne aim of providing competent nealtn professionals.',
+  },
+  {
+    title: 'Mission Statement',
+    body: 'To promote high quality nursing and midwifery training of soldiers and civilians, to make them competent, operational-ready and skilful healthcare service providers through technology based learning and teaching serving on land, sea and air.',
+  },
+]
+</script>
+
+<style scoped>
+.n-card {
+  max-width: 100%;
+}
+</style>
