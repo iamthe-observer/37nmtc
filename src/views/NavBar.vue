@@ -1,6 +1,7 @@
 <template>
-  <nav
-    class="h-36 w-full absolute top-0 flex flex-col items-center bg-gradient-to-b from-black to-transparent z-50"
+  <div
+    ref="nav"
+    class="h-36 w-full absolute top-0 flex flex-col items-center bg-gradient-to-b from-black to-transparent z-30"
   >
     <div class="py-2 text-white w-full flex justify-between">
       <h1 class="pl-6 font-bold text-2xl flex gap-2 items-center">
@@ -16,14 +17,22 @@
     <div class="flex items-center">
       <RouterLinks class="text-2xl" :links="bottom_links" />
     </div>
-  </nav>
+  </div>
 </template>
 
 <script setup lang="ts">
 import RouterLinks from '@/components/RouterLinks.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { LinkData } from '@/interfaces'
+import { useAppStore } from '@/store/appStore'
+import { useElementSize } from '@vueuse/core'
 
+const nav = ref<HTMLDivElement | null>(null)
+const { width, height } = useElementSize(nav)
+
+onMounted(() => {
+  useAppStore().setNavDimensions({ width: width.value, height: height.value })
+})
 const top_links = ref<LinkData[]>([
   {
     name: 'Home',

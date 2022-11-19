@@ -1,11 +1,8 @@
 <template>
-  <div class="relative flex flex-col items-center w-full">
+  <div class="w-full h-full bg-purple-800 relative">
     <NavBar />
     <router-view />
-    <!-- <Footer /> -->
   </div>
 </template>
 
-<script setup lang="ts">
-import NavBar from './views/NavBar.vue'
-</script>
+<script setup lang="ts"></script>
