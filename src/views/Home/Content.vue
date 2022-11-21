@@ -3,6 +3,7 @@
     class="overflow-y-scroll absolute inset-0 text-xl text-green-600 w-full h-screen"
   >
     <div
+      ref="target"
       class="[margin-top:100vh] py-3 px-2 bg-white flex flex-col items-center"
     >
       <h1 v-motion-slide-visible-once-bottom class="text-4xl mt-6 mb-3">
@@ -10,7 +11,7 @@
       </h1>
 
       <!-- about school; init information -->
-      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full">
+      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full mb-8">
         <n-card
           :bordered="false"
           v-for="(data, i) in init_info"
@@ -26,7 +27,7 @@
       <!-- Our Programmes -->
 
       <h3>Our Programmes</h3>
-      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full">
+      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full mb-8">
         <n-card
           :key="i"
           :bordered="false"
@@ -35,12 +36,65 @@
           >{{ data.body }}</n-card
         >
       </div>
+
+      <div class="divider"></div>
+
+      <div v-motion-slide-visible-once-bottom class="flex mb-8">
+        <TabView>
+          <TabPanel header="Organization & Governance">
+            The school is the ownership of the Ministry of Defence and managed
+            by Ghana Armed Forces Medical Services (GAFMS). The Ghana Armed
+            Forces Medical Service (GAFMS) is responsible for the Health
+            Training institutions, Military Hospitals and the Medical Reception
+            Stations (MRS). The Medical Directorate of the GAFMS meets with the
+            health training institutions to discuss and disseminate policies and
+            plans for future developments.
+          </TabPanel>
+          <TabPanel header="Accreditation & afliliation">
+            Accreditation: The college has a renewable accreditation with the
+            National Accreditation Board (NAB) to provide three-year diploma
+            courses in Registered General Nursing and Midwifery. Affiliation:
+            The college has had affiliation with the University of Science and
+            Technology. The college is also a member of the Health Training
+            Institutions secretariat.</TabPanel
+          >
+          <TabPanel header="Admission Policy">
+            The school is opened to all Ghanaians who meet the entry
+            requirements. There are two (2) programmes run in the College:
+            Registered General Nursing and Registered Midwifery. Eligible
+            applicant must; 1. be a Ghanaian citizen by birth
+          </TabPanel>
+        </TabView>
+
+        <!-- student testimonials -->
+        <div class="flex flex-col items-center">
+          <h1 class="w-full mb-3 inline-block">Student testimonials</h1>
+          <div class="flex">
+            <n-card
+              :key="i"
+              v-for="(data, i) in program_info"
+              :title="data.title"
+              >{{ data.body }}</n-card
+            >
+          </div>
+        </div>
+      </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
 import { NCard } from 'naive-ui'
+import TabView from 'primevue/tabview'
+import TabPanel from 'primevue/tabpanel'
+import { onMounted, ref } from 'vue'
+import { useAppStore } from '@/store/appStore'
+
+const target = ref<HTMLDivElement>()
+onMounted(() => {
+  useAppStore().setElement(target.value!, 't')
+})
 
 const program_info = [
   {

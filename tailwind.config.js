@@ -41,6 +41,7 @@ module.exports = {
       pink: colors.pink,
       rose: colors.rose,
       mauve: '#85081d',
+      deepblue: '#110d3d',
     }),
     columns: {
       auto: 'auto',

@@ -1,9 +1,13 @@
 <template>
   <div
     ref="nav"
-    class="h-36 w-full absolute top-0 flex flex-col items-center bg-gradient-to-b from-black to-transparent z-30"
+    :class="
+      targetIsVisible
+        ? 'h-fit w-full absolute transition-all duration-200 ease-out top-0 flex flex-col bg-mauve items-center z-30'
+        : 'h-fit w-full absolute top-0 flex flex-col items-center transition-all duration-200 ease-out bg-gradient-to-b from-black to-transparent z-30'
+    "
   >
-    <div class="py-2 text-white w-full flex justify-between">
+    <div class="text-white w-full flex justify-between">
       <h1 class="pl-6 font-bold text-2xl flex gap-2 items-center">
         <img
           src=""
@@ -12,10 +16,22 @@
         /><span>37NMTC</span>
       </h1>
 
-      <div class=""><RouterLinks class="text-sm" :links="top_links" /></div>
+      <div class="">
+        <RouterLinks class="text-sm" :links="top_links" />
+      </div>
     </div>
-    <div class="flex items-center">
-      <RouterLinks class="text-2xl" :links="bottom_links" />
+    <div
+      :class="
+        targetIsVisible
+          ? 'flex items-center justify-center shadow bg-white w-full'
+          : 'flex items-center justify-center w-full'
+      "
+    >
+      <RouterLinks
+        class="text-xl text-black w-4/5"
+        :links="bottom_links"
+        :isVisible="targetIsVisible"
+      />
     </div>
   </div>
 </template>
@@ -25,15 +41,31 @@ import RouterLinks from '@/components/RouterLinks.vue'
 import { onMounted, ref } from 'vue'
 import { LinkData } from '@/interfaces'
 import { useAppStore } from '@/store/appStore'
-import { useElementSize } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useIntersectionObserver } from '@vueuse/core'
 
 const nav = ref<HTMLDivElement | null>(null)
-const { width, height } = useElementSize(nav)
+const { nav_ref, target_ref } = storeToRefs(useAppStore())
 
 onMounted(() => {
-  useAppStore().setNavDimensions({ width: width.value, height: height.value })
+  useAppStore().setElement(nav.value!, 'n')
 })
-const top_links = ref<LinkData[]>([
+
+const targetIsVisible = ref(false)
+
+useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    setTimeout(() => {
+      targetIsVisible.value = isIntersecting
+      console.log(targetIsVisible.value)
+    }, 500)
+  } else {
+    targetIsVisible.value = isIntersecting
+    console.log(targetIsVisible.value)
+  }
+})
+
+const bottom_links = ref<LinkData[]>([
   {
     name: 'Home',
     route: '/',
@@ -43,6 +75,14 @@ const top_links = ref<LinkData[]>([
     name: 'About Us',
     route: '/',
     hasDropdown: true,
+    dropNames: [
+      'About 37 NMTC',
+      'Philosophy, Goals & Objectives',
+      'Management',
+      'Management Committees',
+      'Our Staff',
+      'Partner & Affiliates',
+    ],
   },
   {
     name: 'Academics',
@@ -70,7 +110,7 @@ const top_links = ref<LinkData[]>([
     hasDropdown: true,
   },
 ])
-const bottom_links = ref<LinkData[]>([
+const top_links = ref<LinkData[]>([
   {
     name: 'Home',
     route: '/',

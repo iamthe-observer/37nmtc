@@ -3,6 +3,7 @@ export interface LinkData {
   route?: string
   action?: Function
   hasDropdown?: boolean
+  dropNames?: string[]
 }
 
 export interface CarouselData {

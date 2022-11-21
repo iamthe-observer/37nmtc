@@ -22,24 +22,15 @@
 
     <div :class="`z-20 w-full h-[100%] absolute overflow-hidden`">
       <div class="relative w-full h-full flex flex-col">
-        <Content :content_class="data.bottom.value" />
+        <Content />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core'
-import { onMounted, ref } from 'vue'
 import Carousel from '@/components/Carousel.vue'
 import Content from './Content.vue'
-import { useElementBounding } from '@vueuse/core'
-import { computed } from '@vue/reactivity'
-
-const main_content = ref<HTMLDivElement | null>(null)
-const data = useElementBounding(main_content)
-console.log(data)
-onMounted(() => {})
 </script>
 
 <style scoped>
