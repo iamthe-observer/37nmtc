@@ -40,8 +40,11 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
-      mauve: '#85081d',
-      deepblue: '#110d3d',
+      primaryclr: '#85081d',
+      secondaryclr: '#110d3d',
+      trebleclr: '#fff800',
+      backgrdclr: '#f0f0f0',
+      accentclr: '#9333ea',
     }),
     columns: {
       auto: 'auto',
@@ -367,6 +370,13 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+      Outfit: ['Outfit'],
+      Bebas_Neue: ['Bebas Neue'],
+      Fredoka_One: ['Fredoka One'],
+      Big_Shoulders_Display: ['Big Shoulders Display'],
+      Courgette: ['Courgette'],
+      Sorts_Mills_Goudy: ['Sorts Mill Goudy'],
+      Yeseva_One: ['Yeseva One'],
       sans: [
         'ui-sans-serif',
         'system-ui',

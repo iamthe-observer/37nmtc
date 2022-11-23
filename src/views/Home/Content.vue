@@ -1,10 +1,10 @@
 <template>
   <div
-    class="overflow-y-scroll absolute inset-0 text-xl text-green-600 w-full h-screen"
+    class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen"
   >
     <div
       ref="target"
-      class="[margin-top:100vh] py-3 px-2 bg-white flex flex-col items-center"
+      class="[margin-top:100vh] py-3 px-2 bg-[#ffc891] flex flex-col items-center"
     >
       <h1 v-motion-slide-visible-once-bottom class="text-4xl mt-6 mb-3">
         Welcome to 37 Nursing and Training College

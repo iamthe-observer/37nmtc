@@ -3,27 +3,25 @@
     ref="nav"
     :class="
       targetIsVisible
-        ? 'h-fit w-full absolute transition-all duration-200 ease-out top-0 flex flex-col bg-mauve items-center z-30'
+        ? 'h-fit w-full absolute transition-all duration-200 ease-out top-0 flex flex-col bg-primaryclr items-center z-30'
         : 'h-fit w-full absolute top-0 flex flex-col items-center transition-all duration-200 ease-out bg-gradient-to-b from-black to-transparent z-30'
     "
   >
-    <div class="text-white w-full flex justify-between">
+    <div class="text-white w-full flex justify-between py-1">
       <h1 class="pl-6 font-bold text-2xl flex gap-2 items-center">
         <img
           src=""
           alt=""
           class="w-8 h-8 rounded-md border-2 border-white"
-        /><span>37NMTC</span>
+        /><span class="font-Big_Shoulders_Display">37NMTC</span>
       </h1>
 
-      <div class="">
-        <RouterLinks class="text-sm" :links="top_links" />
-      </div>
+      <div class=""></div>
     </div>
     <div
       :class="
         targetIsVisible
-          ? 'flex items-center justify-center shadow bg-white w-full'
+          ? 'flex items-center justify-center shadow bg-backgrdclr w-full'
           : 'flex items-center justify-center w-full'
       "
     >
@@ -88,28 +86,49 @@ const bottom_links = ref<LinkData[]>([
     name: 'Academics',
     route: '/',
     hasDropdown: true,
+    dropNames: [
+      'Academic Regulations',
+      'Channel of Communications',
+      'Academic Calendar',
+      'Programmes & Courses',
+      'Teaching Staff',
+      'Academic Facilities',
+    ],
   },
   {
     name: 'Admission',
     route: '/',
     hasDropdown: true,
+    dropNames: [
+      'Admitted Students',
+      'Entry Requirements',
+      'Application Procedures',
+      'Financial Policy',
+    ],
   },
   {
     name: 'Students',
     route: '/',
     hasDropdown: true,
+    dropNames: [
+      "Students' Representative Council",
+      'Campus Life',
+      'Disciplinary Rules',
+      "Student's Portal",
+    ],
   },
   {
     name: 'News',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
   {
     name: 'Contact Us',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
 ])
+
 const top_links = ref<LinkData[]>([
   {
     name: 'Home',
@@ -119,32 +138,32 @@ const top_links = ref<LinkData[]>([
   {
     name: 'About Us',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
   {
     name: 'Academics',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
   {
     name: 'Admission',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
   {
     name: 'Students',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
   {
     name: 'Latest News',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
   {
     name: 'Contact Us',
     route: '/',
-    hasDropdown: true,
+    hasDropdown: false,
   },
 ])
 </script>

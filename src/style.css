@@ -3,9 +3,45 @@
 @tailwind components;
 
 @tailwind utilities;
+
+/* FONT IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;600;700&family=Courgette&family=Sorts+Mill+Goudy&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+/* PRIMEVUE IMPORTS */
 @import '../node_modules/primevue/resources/primevue.min.css';
 @import '../node_modules/primevue/resources/themes/lara-light-purple/theme.css';
+
+@layer utilities {
+  .neu-box {
+    transform: all 300ms ease-out;
+  }
+  .neu-box:hover {
+    transition: all 300ms ease-out;
+
+    border-radius: 6px;
+    background: #ffffff;
+    box-shadow: -9px 9px 16px #c7c7c7, 9px -9px 16px #ffffff;
+  }
+  .chamber::-webkit-scrollbar {
+    display: none;
+  }
+  .inputless {
+    background: none;
+    color: #fff;
+  }
+  .writing-mode {
+    writing-mode: vertical-lr;
+  }
+  .orientation-upright {
+    text-orientation: upright;
+  }
+  .orientation-none {
+    text-orientation: none;
+  }
+}
 
 html,
 body,
@@ -15,9 +51,7 @@ body,
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Sorts Mill Goudy;
   text-align: center;
 }
 
