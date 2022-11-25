@@ -10,7 +10,7 @@
         :class="
           isVisible
             ? 'text-black font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
-            : 'text-white font-bold cursor-pointer hover:text-accentclr'
+            : 'text-white font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
         "
         >{{ link.name }}</label
       >

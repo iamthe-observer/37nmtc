@@ -8,13 +8,13 @@
       <div class="relative w-full h-full overflow-hidden flex flex-col">
         <Carousel />
         <div
-          class="w-full h-12 text-center bg-primaryclr py-2 text-white flex gap-4 justify-center items-center text-lg"
+          class="w-full h-12 text-center bg-primaryclr py-2 text-white flex gap-4 justify-center items-center text-lg font-Big_Shoulders_Display"
         >
           Explore More <i class="pi pi-angle-double-down"></i>
         </div>
 
         <span
-          class="absolute text-[7.5em] text-white font-bold top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
+          class="absolute text-[7.5em] text-white font-bold top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-Yeseva_One drop-shadow-xl"
           >37NMTC</span
         >
       </div>

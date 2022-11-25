@@ -8,11 +8,13 @@
     "
   >
     <div class="text-white w-full flex justify-between py-1">
-      <h1 class="pl-6 font-bold text-2xl flex gap-2 items-center">
+      <h1
+        class="pl-6 font-bold text-2xl flex gap-2 items-center justify-center"
+      >
         <img
-          src=""
+          src="@/assets/NTC_Logo.jpg"
           alt=""
-          class="w-8 h-8 rounded-md border-2 border-white"
+          class="w-8 h-8 rounded-sm border-2 border-white"
         /><span class="font-Big_Shoulders_Display">37NMTC</span>
       </h1>
 
@@ -26,7 +28,7 @@
       "
     >
       <RouterLinks
-        class="text-xl text-black w-4/5"
+        class="text-xl text-black w-4/5 font-Big_Shoulders_Display whitespace-nowrap"
         :links="bottom_links"
         :isVisible="targetIsVisible"
       />
@@ -43,7 +45,7 @@ import { storeToRefs } from 'pinia'
 import { useIntersectionObserver } from '@vueuse/core'
 
 const nav = ref<HTMLDivElement | null>(null)
-const { nav_ref, target_ref } = storeToRefs(useAppStore())
+const { target_ref } = storeToRefs(useAppStore())
 
 onMounted(() => {
   useAppStore().setElement(nav.value!, 'n')

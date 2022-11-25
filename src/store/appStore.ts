@@ -1,6 +1,7 @@
-import { useIntersectionObserver } from '@vueuse/core'
+import { useElementSize, useIntersectionObserver } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import { useWindowSize } from '@vueuse/core'
 
 export const useAppStore = defineStore('app', () => {
   const nav_ref = ref<HTMLDivElement>()
@@ -14,5 +15,12 @@ export const useAppStore = defineStore('app', () => {
     }
   }
 
-  return { target_ref, nav_ref, setElement }
+  const diff_content_nav = () => {
+    const window = useWindowSize()
+    const content = useElementSize(nav_ref)
+
+    return window.height.value - content.height.value
+  }
+
+  return { target_ref, nav_ref, setElement, diff_content_nav }
 })

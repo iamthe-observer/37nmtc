@@ -4,14 +4,18 @@
   >
     <div
       ref="target"
-      class="[margin-top:100vh] py-3 px-2 bg-[#ffc891] flex flex-col items-center"
+      class="[margin-top:100vh] py-3 px-2 bg-backgrdclr flex flex-col items-center"
     >
-      <h1 v-motion-slide-visible-once-bottom class="text-4xl mt-6 mb-3">
+      <!-- home welcome heading -->
+      <h1
+        v-motion-slide-visible-once-bottom
+        class="text-[3em] mt-14 mb-28 font-Bebas_Neue"
+      >
         Welcome to 37 Nursing and Training College
       </h1>
 
       <!-- about school; init information -->
-      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full mb-8">
+      <!-- <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full mb-8">
         <n-card
           :bordered="false"
           v-for="(data, i) in init_info"
@@ -19,54 +23,127 @@
           :key="i"
           >{{ data.body }}</n-card
         >
+      </div> -->
+      <div class="flex flex-col gap-8 w-full mb-8">
+        <div v-motion-slide-visible-once-left class="w-full flex p-4">
+          <div
+            v-motion-fade-visible-once
+            class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+          >
+            {{ init_info[0].title }}
+          </div>
+          <div
+            class="relative flex-1 p-[2rem] bg-gradient-to-l from-transP to-transsP rounded-md shadow-xl"
+          >
+            {{ init_info[0].body }}
+            <button
+              data-tip="Read More"
+              class="tooltip tooltip-right font-Outfit btn absolute -bottom-5 -left-5 bg-primaryclr border-none"
+            >
+              <i class="pi pi-arrow-right text-white"></i>
+            </button>
+          </div>
+        </div>
+
+        <div v-motion-slide-visible-once-left class="w-full flex p-4">
+          <div
+            class="flex-1 card-body bg-gradient-to-r from-transS to-transsS rounded-md shadow-xl"
+          >
+            {{ init_info[1].body }}
+          </div>
+          <div
+            v-motion-fade-visible-once
+            class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+          >
+            {{ init_info[1].title }}
+          </div>
+        </div>
+
+        <div v-motion-slide-visible-once-left class="w-full flex p-4">
+          <div
+            v-motion-fade-visible-once
+            class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+          >
+            {{ init_info[2].title }}
+          </div>
+          <div
+            class="flex-1 card-body bg-gradient-to-l from-transT to-transsT rounded-md shadow-xl"
+          >
+            {{ init_info[2].body }}
+          </div>
+        </div>
       </div>
 
       <!-- divider -->
       <div class="divider"></div>
 
       <!-- Our Programmes -->
-
-      <h3>Our Programmes</h3>
-      <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full mb-8">
-        <n-card
-          :key="i"
-          :bordered="false"
+      <h3
+        v-motion-slide-visible-once-bottom
+        class="font-Bebas_Neue mt-8 mb-6 text-[2em]"
+      >
+        Our Programmes
+      </h3>
+      <div
+        v-motion-slide-visible-once-bottom
+        class="flex justify-center gap-5 w-full mb-8"
+      >
+        <div
           v-for="(data, i) in program_info"
-          :title="data.title"
-          >{{ data.body }}</n-card
+          class="card w-96 bg-base-100 shadow-xl rounded-lg"
         >
+          <figure>
+            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title mx-auto font-Yeseva_One">
+              {{ data.title }}
+            </h2>
+            <p>{{ data.body }}</p>
+          </div>
+        </div>
       </div>
 
       <div class="divider"></div>
 
-      <div v-motion-slide-visible-once-bottom class="flex mb-8">
-        <TabView>
-          <TabPanel header="Organization & Governance">
-            The school is the ownership of the Ministry of Defence and managed
-            by Ghana Armed Forces Medical Services (GAFMS). The Ghana Armed
-            Forces Medical Service (GAFMS) is responsible for the Health
-            Training institutions, Military Hospitals and the Medical Reception
-            Stations (MRS). The Medical Directorate of the GAFMS meets with the
-            health training institutions to discuss and disseminate policies and
-            plans for future developments.
-          </TabPanel>
-          <TabPanel header="Accreditation & afliliation">
-            Accreditation: The college has a renewable accreditation with the
-            National Accreditation Board (NAB) to provide three-year diploma
-            courses in Registered General Nursing and Midwifery. Affiliation:
-            The college has had affiliation with the University of Science and
-            Technology. The college is also a member of the Health Training
-            Institutions secretariat.</TabPanel
-          >
-          <TabPanel header="Admission Policy">
-            The school is opened to all Ghanaians who meet the entry
-            requirements. There are two (2) programmes run in the College:
-            Registered General Nursing and Registered Midwifery. Eligible
-            applicant must; 1. be a Ghanaian citizen by birth
-          </TabPanel>
-        </TabView>
+      <div
+        v-motion-slide-visible-once-bottom
+        :class="cardClass + 'flex gap-3 mb-8'"
+      >
+        <CardWithImage
+          ><template #text>
+            <div class="opacity-0">
+              The school is the ownership of the Ministry of Defence and managed
+              by Ghana Armed Forces Medical Services (GAFMS). The Ghana Armed
+              Forces Medical Service (GAFMS) is responsible for the Health
+              Training institutions, Military Hospitals and the Medical
+              Reception Stations (MRS). The Medical Directorate of the GAFMS
+              meets with the health training institutions to discuss and
+              disseminate policies and plans for future developments.
+            </div>
+            <div
+              class="absolute inset-0 leading-[2em] text-left p-3 flex flex-col items-start text-[2.3em]"
+            >
+              <span>Organization</span><span>&</span><span>Governance</span>
+            </div>
+          </template></CardWithImage
+        >
+        <div header="Accreditation & afliliation" class="flex-1">
+          Accreditation: The college has a renewable accreditation with the
+          National Accreditation Board (NAB) to provide three-year diploma
+          courses in Registered General Nursing and Midwifery. Affiliation: The
+          college has had affiliation with the University of Science and
+          Technology. The college is also a member of the Health Training
+          Institutions secretariat.
+        </div>
+        <div header="Admission Policy" class="flex-1">
+          The school is opened to all Ghanaians who meet the entry requirements.
+          There are two (2) programmes run in the College: Registered General
+          Nursing and Registered Midwifery. Eligible applicant must; 1. be a
+          Ghanaian citizen by birth
+        </div>
 
-        <!-- student testimonials -->
+        <!-- student testimonials apprently held off
         <div class="flex flex-col items-center">
           <h1 class="w-full mb-3 inline-block">Student testimonials</h1>
           <div class="flex">
@@ -77,7 +154,7 @@
               >{{ data.body }}</n-card
             >
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <Footer />
@@ -85,15 +162,16 @@
 </template>
 
 <script setup lang="ts">
-import { NCard } from 'naive-ui'
-import TabView from 'primevue/tabview'
-import TabPanel from 'primevue/tabpanel'
 import { onMounted, ref } from 'vue'
 import { useAppStore } from '@/store/appStore'
+import CardWithImage from '@/components/CardWithImage.vue'
 
 const target = ref<HTMLDivElement>()
-onMounted(() => {
-  useAppStore().setElement(target.value!, 't')
+const cardClass = ref<string>()
+
+onMounted(async () => {
+  await useAppStore().setElement(target.value!, 't')
+  cardClass.value = 'min-h-[' + useAppStore().diff_content_nav() + 'px] '
 })
 
 const program_info = [
