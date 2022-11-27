@@ -4,6 +4,11 @@ module.exports = {
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
+    extend: {
+      backgroundImage: {
+        'random-image': "url('https://placeimg.com/400/225/arch')",
+      },
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -194,6 +199,7 @@ module.exports = {
     },
     brightness: {
       0: '0',
+      30: '.3',
       50: '.5',
       75: '.75',
       90: '.9',

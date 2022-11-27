@@ -57,11 +57,9 @@ useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     setTimeout(() => {
       targetIsVisible.value = isIntersecting
-      console.log(targetIsVisible.value)
     }, 500)
   } else {
     targetIsVisible.value = isIntersecting
-    console.log(targetIsVisible.value)
   }
 })
 
@@ -73,92 +71,50 @@ const bottom_links = ref<LinkData[]>([
   },
   {
     name: 'About Us',
-    route: '/',
     hasDropdown: true,
     dropNames: [
-      'About 37 NMTC',
-      'Philosophy, Goals & Objectives',
-      'Management',
-      'Management Committees',
-      'Our Staff',
-      'Partner & Affiliates',
+      { to: '/about_us', text: 'About 37 NMTC' },
+      { to: '/about_us', text: 'Philosophy, Goals & Objectives' },
+      { to: '/about_us', text: 'Management' },
+      { to: '/about_us', text: 'Management Committees' },
+      { to: '/about_us', text: 'Our Staff' },
+      { to: '/about_us', text: 'Partner & Affiliates' },
     ],
   },
   {
     name: 'Academics',
-    route: '/',
     hasDropdown: true,
     dropNames: [
-      'Academic Regulations',
-      'Channel of Communications',
-      'Academic Calendar',
-      'Programmes & Courses',
-      'Teaching Staff',
-      'Academic Facilities',
+      { to: '/about_us', text: 'Academic Regulations' },
+      { to: '/about_us', text: 'Channel of Communications' },
+      { to: '/about_us', text: 'Academic Calendar' },
+      { to: '/about_us', text: 'Programmes & Courses' },
+      { to: '/about_us', text: 'Teaching Staff' },
+      { to: '/about_us', text: 'Academic Facilities' },
     ],
   },
   {
     name: 'Admission',
-    route: '/',
     hasDropdown: true,
     dropNames: [
-      'Admitted Students',
-      'Entry Requirements',
-      'Application Procedures',
-      'Financial Policy',
+      { to: '/about_us', text: 'Admitted Students' },
+      { to: '/about_us', text: 'Entry Requirements' },
+      { to: '/about_us', text: 'Application Procedures' },
+      { to: '/about_us', text: 'Financial Policy' },
     ],
   },
   {
     name: 'Students',
-    route: '/',
     hasDropdown: true,
     dropNames: [
-      "Students' Representative Council",
-      'Campus Life',
-      'Disciplinary Rules',
-      "Student's Portal",
+      { to: '/about_us', text: "Students' Representative Council" },
+      { to: '/about_us', text: 'Campus Life' },
+      { to: '/about_us', text: 'Disciplinary Rules' },
+      { to: '/about_us', text: "Student's Portal" },
     ],
   },
   {
     name: 'News',
-    route: '/',
-    hasDropdown: false,
-  },
-  {
-    name: 'Contact Us',
-    route: '/',
-    hasDropdown: false,
-  },
-])
-
-const top_links = ref<LinkData[]>([
-  {
-    name: 'Home',
-    route: '/',
-    hasDropdown: false,
-  },
-  {
-    name: 'About Us',
-    route: '/',
-    hasDropdown: false,
-  },
-  {
-    name: 'Academics',
-    route: '/',
-    hasDropdown: false,
-  },
-  {
-    name: 'Admission',
-    route: '/',
-    hasDropdown: false,
-  },
-  {
-    name: 'Students',
-    route: '/',
-    hasDropdown: false,
-  },
-  {
-    name: 'Latest News',
     route: '/',
     hasDropdown: false,
   },

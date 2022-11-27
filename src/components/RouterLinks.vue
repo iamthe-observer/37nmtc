@@ -24,7 +24,7 @@
           v-for="(data, k) in props.links[i].dropNames"
           class="w-full whitespace-nowrap"
         >
-          <a>{{ data }}</a>
+          <router-link :to="data.to">{{ data.text }}</router-link>
         </li>
       </ul>
     </div>
@@ -33,10 +33,20 @@
 
 <script setup lang="ts">
 import { LinkData } from '@/interfaces'
+import { useRouter } from 'vue-router'
 
 //[ ] add library to the links and in the menus there should be e-learning
 
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
+const router = useRouter()
+
+function goTo(route: string) {
+  if (route) {
+    router.push(route)
+  } else {
+    return
+  }
+}
 </script>
 
 <style scoped></style>

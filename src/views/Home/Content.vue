@@ -2,20 +2,20 @@
   <div
     class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen"
   >
-    <div
-      ref="target"
-      class="[margin-top:100vh] py-3 px-2 bg-backgrdclr flex flex-col items-center"
-    >
-      <!-- home welcome heading -->
-      <h1
-        v-motion-slide-visible-once-bottom
-        class="text-[3em] mt-14 mb-28 font-Bebas_Neue"
+    <div class="" ref="target">
+      <div
+        class="[margin-top:100vh] rounded-tr-3xl rounded-tl-3xl px-6 py-3 bg-backgrdclr flex flex-col items-center"
       >
-        Welcome to 37 Nursing and Training College
-      </h1>
+        <!-- home welcome heading -->
+        <h1
+          v-motion-slide-visible-once-bottom
+          class="text-[3em] mt-14 mb-28 font-Bebas_Neue"
+        >
+          Welcome to 37 Nursing and Training College
+        </h1>
 
-      <!-- about school; init information -->
-      <!-- <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full mb-8">
+        <!-- about school; init information -->
+        <!-- <div v-motion-slide-visible-once-bottom class="flex gap-5 w-full mb-8">
         <n-card
           :bordered="false"
           v-for="(data, i) in init_info"
@@ -24,95 +24,98 @@
           >{{ data.body }}</n-card
         >
       </div> -->
-      <div class="flex flex-col gap-8 w-full mb-8">
-        <div v-motion-slide-visible-once-left class="w-full flex p-4">
-          <div
-            v-motion-fade-visible-once
-            class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
-          >
-            {{ init_info[0].title }}
-          </div>
-          <div
-            class="relative flex-1 p-[2rem] bg-gradient-to-l from-transP to-transsP rounded-md shadow-xl"
-          >
-            {{ init_info[0].body }}
-            <button
-              data-tip="Read More"
-              class="tooltip tooltip-right font-Outfit btn absolute -bottom-5 -left-5 bg-primaryclr border-none"
+        <div class="flex flex-col gap-8 w-full mb-8">
+          <div v-motion-slide-visible-once-left class="w-full flex p-4">
+            <div
+              v-motion-fade-visible-once
+              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
             >
-              <i class="pi pi-arrow-right text-white"></i>
-            </button>
+              {{ init_info[0].title }}
+            </div>
+            <div
+              class="relative flex-1 p-[2rem] bg-gradient-to-l from-transP to-transsP rounded-md shadow-2xl"
+            >
+              {{ init_info[0].body }}
+              <button
+                data-tip="Read More"
+                class="tooltip tooltip-right font-Outfit btn absolute -bottom-5 -left-5 bg-primaryclr border-none"
+              >
+                <i class="pi pi-arrow-right text-white"></i>
+              </button>
+            </div>
+          </div>
+
+          <div v-motion-slide-visible-once-left class="w-full flex p-4">
+            <div
+              class="flex-1 card-body bg-gradient-to-r from-transS to-transsS rounded-md shadow-2xl"
+            >
+              {{ init_info[1].body }}
+            </div>
+            <div
+              v-motion-fade-visible-once
+              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+            >
+              {{ init_info[1].title }}
+            </div>
+          </div>
+
+          <div v-motion-slide-visible-once-left class="w-full flex p-4">
+            <div
+              v-motion-fade-visible-once
+              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+            >
+              {{ init_info[2].title }}
+            </div>
+            <div
+              class="flex-1 card-body bg-gradient-to-l from-transT to-transsT rounded-md shadow-2xl"
+            >
+              {{ init_info[2].body }}
+            </div>
           </div>
         </div>
 
-        <div v-motion-slide-visible-once-left class="w-full flex p-4">
-          <div
-            class="flex-1 card-body bg-gradient-to-r from-transS to-transsS rounded-md shadow-xl"
-          >
-            {{ init_info[1].body }}
-          </div>
-          <div
-            v-motion-fade-visible-once
-            class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
-          >
-            {{ init_info[1].title }}
-          </div>
-        </div>
+        <!-- divider -->
+        <div class="divider"></div>
 
-        <div v-motion-slide-visible-once-left class="w-full flex p-4">
-          <div
-            v-motion-fade-visible-once
-            class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
-          >
-            {{ init_info[2].title }}
-          </div>
-          <div
-            class="flex-1 card-body bg-gradient-to-l from-transT to-transsT rounded-md shadow-xl"
-          >
-            {{ init_info[2].body }}
-          </div>
-        </div>
-      </div>
-
-      <!-- divider -->
-      <div class="divider"></div>
-
-      <!-- Our Programmes -->
-      <h3
-        v-motion-slide-visible-once-bottom
-        class="font-Bebas_Neue mt-8 mb-6 text-[2em]"
-      >
-        Our Programmes
-      </h3>
-      <div
-        v-motion-slide-visible-once-bottom
-        class="flex justify-center gap-5 w-full mb-8"
-      >
-        <div
-          v-for="(data, i) in program_info"
-          class="card w-96 bg-base-100 shadow-xl rounded-lg"
+        <!-- Our Programmes -->
+        <h3
+          v-motion-slide-visible-once-bottom
+          class="font-Bebas_Neue mt-8 mb-6 text-[2em]"
         >
-          <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title mx-auto font-Yeseva_One">
-              {{ data.title }}
-            </h2>
-            <p>{{ data.body }}</p>
+          Our Programmes
+        </h3>
+        <div
+          v-motion-slide-visible-once-bottom
+          class="flex justify-center gap-5 w-full mb-8"
+        >
+          <div
+            v-for="(data, i) in program_info"
+            class="card w-96 bg-base-100 shadow-xl rounded-lg"
+          >
+            <figure>
+              <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title mx-auto font-Yeseva_One">
+                {{ data.title }}
+              </h2>
+              <p>{{ data.body }}</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="divider"></div>
+        <div class="divider"></div>
 
-      <div
-        v-motion-slide-visible-once-bottom
-        :class="cardClass + 'flex gap-3 mb-8'"
-      >
-        <CardWithImage
-          ><template #text>
-            <div class="opacity-0">
+        <!-- more info -->
+        <div
+          v-motion-slide-visible-once-bottom
+          :class="cardClass + 'flex gap-5 my-16'"
+        >
+          <CardWithImage>
+            <template #head>
+              <span>Organization</span><span>&</span><span>Governance</span>
+            </template>
+            <template #text>
               The school is the ownership of the Ministry of Defence and managed
               by Ghana Armed Forces Medical Services (GAFMS). The Ghana Armed
               Forces Medical Service (GAFMS) is responsible for the Health
@@ -120,30 +123,36 @@
               Reception Stations (MRS). The Medical Directorate of the GAFMS
               meets with the health training institutions to discuss and
               disseminate policies and plans for future developments.
-            </div>
-            <div
-              class="absolute inset-0 leading-[2em] text-left p-3 flex flex-col items-start text-[2.3em]"
-            >
-              <span>Organization</span><span>&</span><span>Governance</span>
-            </div>
-          </template></CardWithImage
-        >
-        <div header="Accreditation & afliliation" class="flex-1">
-          Accreditation: The college has a renewable accreditation with the
-          National Accreditation Board (NAB) to provide three-year diploma
-          courses in Registered General Nursing and Midwifery. Affiliation: The
-          college has had affiliation with the University of Science and
-          Technology. The college is also a member of the Health Training
-          Institutions secretariat.
-        </div>
-        <div header="Admission Policy" class="flex-1">
-          The school is opened to all Ghanaians who meet the entry requirements.
-          There are two (2) programmes run in the College: Registered General
-          Nursing and Registered Midwifery. Eligible applicant must; 1. be a
-          Ghanaian citizen by birth
-        </div>
+            </template>
+          </CardWithImage>
 
-        <!-- student testimonials apprently held off
+          <CardWithImage>
+            <template #head>
+              <span>Accreditation</span><span>&</span><span>Afliliation</span>
+            </template>
+            <template #text>
+              Accreditation: The college has a renewable accreditation with the
+              National Accreditation Board (NAB) to provide three-year diploma
+              courses in Registered General Nursing and Midwifery. Affiliation:
+              The college has had affiliation with the University of Science and
+              Technology. The college is also a member of the Health Training
+              Institutions secretariat.
+            </template>
+          </CardWithImage>
+
+          <CardWithImage>
+            <template #head>
+              <span>Admission</span><span>Policy</span>
+            </template>
+            <template #text>
+              The school is opened to all Ghanaians who meet the entry
+              requirements. There are two (2) programmes run in the College:
+              Registered General Nursing and Registered Midwifery. Eligible
+              applicant must; 1. be a Ghanaian citizen by birth
+            </template>
+          </CardWithImage>
+
+          <!-- student testimonials apprently held off
         <div class="flex flex-col items-center">
           <h1 class="w-full mb-3 inline-block">Student testimonials</h1>
           <div class="flex">
@@ -155,9 +164,10 @@
             >
           </div>
         </div> -->
+        </div>
       </div>
+      <Footer />
     </div>
-    <Footer />
   </div>
 </template>
 
