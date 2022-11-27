@@ -8,6 +8,9 @@ module.exports = {
       backgroundImage: {
         'random-image': "url('https://placeimg.com/400/225/arch')",
       },
+      spacing: {
+        'nav-h': '92px',
+      },
     },
     screens: {
       sm: '640px',

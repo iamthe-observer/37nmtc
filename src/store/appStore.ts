@@ -1,11 +1,21 @@
 import { useElementSize, useIntersectionObserver } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useWindowSize } from '@vueuse/core'
+import { useRoute } from 'vue-router'
 
 export const useAppStore = defineStore('app', () => {
   const nav_ref = ref<HTMLDivElement>()
   const target_ref = ref<HTMLDivElement>()
+
+  const route = useRoute()
+  const current_route = computed(() => {
+    return route.name
+  })
+
+  watchEffect(() => {
+    console.log(current_route.value)
+  })
 
   const setElement = (el: HTMLDivElement, ref: 't' | 'n') => {
     if (ref === 'n') {
@@ -22,5 +32,5 @@ export const useAppStore = defineStore('app', () => {
     return window.height.value - content.height.value
   }
 
-  return { target_ref, nav_ref, setElement, diff_content_nav }
+  return { target_ref, nav_ref, setElement, diff_content_nav, current_route }
 })

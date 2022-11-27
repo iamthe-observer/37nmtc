@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-backgrdclr">
+  <div class="bg-backgrdclr">
     <div
       class="bg-secondaryclr w-full min-h-full rounded-tr-3xl px-5 py-4 flex gap-8 rounded-tl-3xl"
     >

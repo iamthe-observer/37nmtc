@@ -5,15 +5,17 @@
       :key="i"
       v-for="(link, i) in props.links"
     >
-      <label
-        tabindex="0"
-        :class="
-          isVisible
-            ? 'text-black font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
-            : 'text-white font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
-        "
-        >{{ link.name }}</label
-      >
+      <router-link :to="link.route! ? link.route! : '/'">
+        <label
+          tabindex="0"
+          :class="
+            isVisible
+              ? 'text-black font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
+              : 'text-white font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
+          "
+          >{{ link.name }}</label
+        >
+      </router-link>
       <ul
         v-if="link.hasDropdown"
         tabindex="0"

@@ -2,7 +2,7 @@
   <div
     ref="nav"
     :class="
-      targetIsVisible
+      ifOnHome_validate
         ? 'h-fit w-full absolute transition-all duration-200 ease-out top-0 flex flex-col bg-primaryclr items-center z-30'
         : 'h-fit w-full absolute top-0 flex flex-col items-center transition-all duration-200 ease-out bg-gradient-to-b from-black to-transparent z-30'
     "
@@ -22,7 +22,7 @@
     </div>
     <div
       :class="
-        targetIsVisible
+        ifOnHome_validate
           ? 'flex items-center justify-center shadow bg-backgrdclr w-full'
           : 'flex items-center justify-center w-full'
       "
@@ -30,7 +30,7 @@
       <RouterLinks
         class="text-xl text-black w-4/5 font-Big_Shoulders_Display whitespace-nowrap"
         :links="bottom_links"
-        :isVisible="targetIsVisible"
+        :isVisible="ifOnHome_validate"
       />
     </div>
   </div>
@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import RouterLinks from '@/components/RouterLinks.vue'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { LinkData } from '@/interfaces'
 import { useAppStore } from '@/store/appStore'
 import { storeToRefs } from 'pinia'
@@ -46,12 +46,23 @@ import { useIntersectionObserver } from '@vueuse/core'
 
 const nav = ref<HTMLDivElement | null>(null)
 const { target_ref } = storeToRefs(useAppStore())
+const { current_route } = storeToRefs(useAppStore())
 
 onMounted(() => {
   useAppStore().setElement(nav.value!, 'n')
 })
 
 const targetIsVisible = ref(false)
+
+const ifOnHome_validate = computed(() => {
+  if (targetIsVisible.value && current_route.value === 'home') {
+    return true
+  } else if (current_route.value !== 'home') {
+    return true
+  } else {
+    return false
+  }
+})
 
 useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
   if (isIntersecting) {
@@ -73,44 +84,44 @@ const bottom_links = ref<LinkData[]>([
     name: 'About Us',
     hasDropdown: true,
     dropNames: [
-      { to: '/about_us', text: 'About 37 NMTC' },
-      { to: '/about_us', text: 'Philosophy, Goals & Objectives' },
-      { to: '/about_us', text: 'Management' },
-      { to: '/about_us', text: 'Management Committees' },
-      { to: '/about_us', text: 'Our Staff' },
-      { to: '/about_us', text: 'Partner & Affiliates' },
+      { to: '/about', text: 'About 37 NMTC' },
+      { to: '/about', text: 'Philosophy, Goals & Objectives' },
+      { to: '/about', text: 'Management' },
+      { to: '/about', text: 'Management Committees' },
+      { to: '/about', text: 'Our Staff' },
+      { to: '/about', text: 'Partner & Affiliates' },
     ],
   },
   {
     name: 'Academics',
     hasDropdown: true,
     dropNames: [
-      { to: '/about_us', text: 'Academic Regulations' },
-      { to: '/about_us', text: 'Channel of Communications' },
-      { to: '/about_us', text: 'Academic Calendar' },
-      { to: '/about_us', text: 'Programmes & Courses' },
-      { to: '/about_us', text: 'Teaching Staff' },
-      { to: '/about_us', text: 'Academic Facilities' },
+      { to: '/about', text: 'Academic Regulations' },
+      { to: '/about', text: 'Channel of Communications' },
+      { to: '/about', text: 'Academic Calendar' },
+      { to: '/about', text: 'Programmes & Courses' },
+      { to: '/about', text: 'Teaching Staff' },
+      { to: '/about', text: 'Academic Facilities' },
     ],
   },
   {
     name: 'Admission',
     hasDropdown: true,
     dropNames: [
-      { to: '/about_us', text: 'Admitted Students' },
-      { to: '/about_us', text: 'Entry Requirements' },
-      { to: '/about_us', text: 'Application Procedures' },
-      { to: '/about_us', text: 'Financial Policy' },
+      { to: '/about', text: 'Admitted Students' },
+      { to: '/about', text: 'Entry Requirements' },
+      { to: '/about', text: 'Application Procedures' },
+      { to: '/about', text: 'Financial Policy' },
     ],
   },
   {
     name: 'Students',
     hasDropdown: true,
     dropNames: [
-      { to: '/about_us', text: "Students' Representative Council" },
-      { to: '/about_us', text: 'Campus Life' },
-      { to: '/about_us', text: 'Disciplinary Rules' },
-      { to: '/about_us', text: "Student's Portal" },
+      { to: '/about', text: "Students' Representative Council" },
+      { to: '/about', text: 'Campus Life' },
+      { to: '/about', text: 'Disciplinary Rules' },
+      { to: '/about', text: "Student's Portal" },
     ],
   },
   {
