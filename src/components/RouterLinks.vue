@@ -5,7 +5,7 @@
       :key="i"
       v-for="(link, i) in props.links"
     >
-      <router-link :to="link.route! ? link.route! : '/'">
+      <router-link :to="link.route! ? link.route! : ''">
         <label
           tabindex="0"
           :class="

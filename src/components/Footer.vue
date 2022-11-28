@@ -4,7 +4,7 @@
       class="bg-secondaryclr w-full min-h-full rounded-tr-3xl px-5 py-4 flex gap-8 rounded-tl-3xl"
     >
       <div
-        class="bg-black w-[30%] text-white p-8 rounded-lg m-3 subscribe-box flex items-center flex-col font-Outfit"
+        class="bg-black w-[30%] text-white p-8 rounded-lg m-3 box-box flex items-center flex-col font-Outfit"
       >
         <!-- newsletters -->
         <h2 class="font-Bebas_Neue text-3xl mb-3">
@@ -45,7 +45,7 @@
 
       <!-- other info -->
       <div
-        class="flex-1 bg-black text-white p-8 rounded-lg m-3 subscribe-box flex items-start justify-between gap-3 font-Outfit"
+        class="flex-1 bg-black text-white p-8 rounded-lg m-3 box-box flex items-start justify-between gap-3 font-Outfit"
       >
         <!-- links -->
         <div ref="links1" class="flex flex-col w-[40%]">
@@ -139,10 +139,16 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-.subscribe-box {
+<style>
+.box-box {
   box-shadow: -12px 12px 0px 0px #85081d;
   -webkit-box-shadow: -12px 12px 0px 0px #85081d;
   -moz-box-shadow: -12px 12px 0px 0px #85081d;
+}
+
+.box-box-sec {
+  box-shadow: -12px 12px 0px 0px #110d3d;
+  -webkit-box-shadow: -12px 12px 0px 0px #110d3d;
+  -moz-box-shadow: -12px 12px 0px 0px #110d3d;
 }
 </style>

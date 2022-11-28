@@ -5,8 +5,18 @@
         class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen"
       >
         <div class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex">
-          <MegaMenu :model="items" orientation="vertical"></MegaMenu>
-          <Content />
+          <!-- sidebar -->
+          <div class="">
+            <MegaMenu :model="items" orientation="vertical" class="flex-1" />
+          </div>
+          <!-- content -->
+          <div class="p-3">
+            <transition name="fade" mode="out-in">
+              <keep-alive>
+                <component :is="HistoryAndFacts" />
+              </keep-alive>
+            </transition>
+          </div>
         </div>
         <Footer />
       </div>
@@ -17,36 +27,40 @@
 <script setup lang="ts">
 import MegaMenu from 'primevue/megamenu'
 import { ref } from 'vue'
-import Content from './Content.vue'
+import HistoryAndFacts from './HistoryAndFacts.vue'
 
 const items = ref([
   {
-    label: 'Videos',
+    label: 'History & Facts',
     icon: 'pi pi-fw pi-video',
-    items: [
-      [
-        {
-          label: 'Video 1',
-          items: [{ label: 'Video 1.1' }, { label: 'Video 1.2' }],
-        },
-        {
-          label: 'Video 2',
-          items: [{ label: 'Video 2.1' }, { label: 'Video 2.2' }],
-        },
-      ],
-      [
-        {
-          label: 'Video 3',
-          items: [{ label: 'Video 3.1' }, { label: 'Video 3.2' }],
-        },
-        {
-          label: 'Video 4',
-          items: [{ label: 'Video 4.1' }, { label: 'Video 4.2' }],
-        },
-      ],
-    ],
+  },
+  {
+    label: 'History & Facts',
+    icon: 'pi pi-fw pi-video',
+  },
+  {
+    label: 'History & Facts',
+    icon: 'pi pi-fw pi-video',
+  },
+  {
+    label: 'History & Facts',
+    icon: 'pi pi-fw pi-video',
+  },
+  {
+    label: 'History & Facts',
+    icon: 'pi pi-fw pi-video',
+  },
+  {
+    label: 'History & Facts',
+    icon: 'pi pi-fw pi-video',
+  },
+  {
+    label: 'History & Facts',
+    icon: 'pi pi-fw pi-video',
+  },
+  {
+    label: 'History & Facts',
+    icon: 'pi pi-fw pi-video',
   },
 ])
 </script>
-
-<style scoped></style>
