@@ -79,7 +79,7 @@
           <div class="flex flex-col items-start text-lg">
             <router-link to="" class="">University of Cape Coast</router-link>
             <router-link to="" class=""
-              >Kwame Nkrumah University of Science and Technology</router-link
+              >Kwame Nkrumah University [KNUST]</router-link
             >
             <router-link to="" class=""
               >Health Training Institutions</router-link

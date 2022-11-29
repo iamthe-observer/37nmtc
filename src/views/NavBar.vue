@@ -23,7 +23,7 @@
     <div
       :class="
         ifOnHome_validate
-          ? 'flex items-center justify-center shadow bg-backgrdclr w-full'
+          ? 'flex items-center justify-center shadow bg-white w-full'
           : 'flex items-center justify-center w-full'
       "
     >

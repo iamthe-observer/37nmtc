@@ -12,3 +12,14 @@ export interface LinkData {
 export interface CarouselData {
   src: string
 }
+
+export interface MenuItem {
+  title: string
+  class?: string
+  to?: string
+  icon?: string
+  disabled?: boolean
+  nested_menu?: MenuItem
+  component?: object
+  id?: string
+}

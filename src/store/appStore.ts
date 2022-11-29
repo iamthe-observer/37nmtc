@@ -1,6 +1,6 @@
 import { useElementSize, useIntersectionObserver } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, ref, watchEffect } from 'vue'
+import { computed, ref } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { useRoute } from 'vue-router'
 
@@ -11,10 +11,6 @@ export const useAppStore = defineStore('app', () => {
   const route = useRoute()
   const current_route = computed(() => {
     return route.name
-  })
-
-  watchEffect(() => {
-    console.log(current_route.value)
   })
 
   const setElement = (el: HTMLDivElement, ref: 't' | 'n') => {
