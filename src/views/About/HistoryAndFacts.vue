@@ -1,14 +1,14 @@
 <template>
-  <div class="p-3">
+  <div class="p-3 w-full">
     <h1 class="text-[3em] font-Bebas_Neue mt-8 mb-10">
       History & Facts about 37NMTC
     </h1>
 
     <div class="flex flex-col">
-      <Fieldset class="w-full shadow-lg my-10">
+      <Fieldset class="shadow-lg my-10">
         <template #legend
           ><span class="font-Yeseva_One"
-            >Where we are coming from</span
+            >Where We Are Coming From</span
           ></template
         >
         <span class="font-Sorts_Mills_Goudy">

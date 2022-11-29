@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'random-image': "url('https://placeimg.com/400/225/arch')",
+        socrates: "url('@/assets/socrates.jpeg')",
       },
       spacing: {
         'nav-h': '92px',

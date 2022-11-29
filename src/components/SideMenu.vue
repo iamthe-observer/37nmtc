@@ -10,7 +10,7 @@
       <a
         v-for="(item, i) in model"
         :class="
-          'link link-hover font-Big_Shoulders_Display text-xl flex gap-3 items-center ' +
+          'link link-hover w-full rounded-md px-2 py-1 hover:text-white hover:bg-primaryclr transition-all duration-300 ease-out font-Big_Shoulders_Display text-xl flex gap-3 items-center ' +
           item.class
         "
         @click="emit('title', item.id)"

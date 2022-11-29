@@ -37,7 +37,8 @@
 import { LinkData } from '@/interfaces'
 import { useRouter } from 'vue-router'
 
-//[ ] add library to the links and in the menus there should be e-learning
+// [ ] add library to the links and in the menus there should be e-learning
+// [ ] add
 
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
 const router = useRouter()

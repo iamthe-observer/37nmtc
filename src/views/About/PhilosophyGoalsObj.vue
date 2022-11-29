@@ -1,14 +1,26 @@
 <template>
-  <div>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, sint!
-    Mollitia laboriosam voluptas architecto! Fugiat necessitatibus id modi
-    accusamus! Nisi doloremque culpa quis repellat aspernatur labore illo
-    quaerat sed? Ducimus impedit at magnam. Laborum sint, est in debitis quos
-    accusamus? Voluptates laborum provident quam, tenetur ratione excepturi
-    ipsum iure natus?
+  <div class="p-3 w-full">
+    <h1 class="text-[3em] font-Bebas_Neue mt-8 mb-10">Philosophy</h1>
+
+    <div class="relative">
+      <div
+        class="parent absolute translate-x-14 from-[rgba(0,0,0,.5)] to-transparent"
+      >
+        <img class="child" src="@/assets/socrates.jpeg" alt="" />
+      </div>
+    </div>
+
+    <div class="flex flex-col"></div>
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+.parent {
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 50%, transparent 100%);
+}
+.child {
+  background-image: url('../../assets/socrates.jpeg');
+}
+</style>

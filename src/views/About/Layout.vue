@@ -2,7 +2,7 @@
   <div :class="`z-20 w-full h-[100%] absolute overflow-hidden`">
     <div class="relative w-full h-full flex flex-col">
       <div
-        class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen"
+        class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen overflow-x-hidden"
       >
         <div class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex">
           <!-- sidebar -->
@@ -32,6 +32,7 @@ import PhilosophyGoalsObj from './PhilosophyGoalsObj.vue'
 import { PrimeIcons } from 'primevue/api'
 import SideMenu from '@/components/SideMenu.vue'
 import { MenuItem } from '@/interfaces'
+import ScrollTop from 'primevue/scrolltop'
 
 const content = ref('20413190')
 
@@ -80,10 +81,6 @@ const history_items = ref<MenuItem[]>([
   },
   {
     title: 'Our Staff',
-    icon: PrimeIcons.BOOK,
-  },
-  {
-    title: 'Partner & Affiliates',
     icon: PrimeIcons.BOOK,
   },
 ])
