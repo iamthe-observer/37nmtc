@@ -131,12 +131,14 @@
               <span>Accreditation</span><span>&</span><span>Afliliation</span>
             </template>
             <template #text>
-              Accreditation: The college has a renewable accreditation with the
-              National Accreditation Board (NAB) to provide three-year diploma
-              courses in Registered General Nursing and Midwifery. Affiliation:
-              The college has had affiliation with the University of Science and
-              Technology. The college is also a member of the Health Training
-              Institutions secretariat.
+              <span class="text-yellow-500">Accreditation</span>: The college
+              has a renewable accreditation with the National Accreditation
+              Board (NAB) to provide three-year diploma courses in Registered
+              General Nursing and Midwifery.
+              <span class="text-yellow-500">Affiliation</span>: The college has
+              had affiliation with the University of Science and Technology. The
+              college is also a member of the Health Training Institutions
+              secretariat.
             </template>
           </CardWithImage>
 

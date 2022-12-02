@@ -8,12 +8,13 @@
       class="flex flex-col gap-3 items-start text-left bg-white shadow-lg rounded-xl p-3"
     >
       <a
+        :key="i"
         v-for="(item, i) in model"
         :class="
           'link link-hover w-full rounded-md px-2 py-1 hover:text-white hover:bg-primaryclr transition-all duration-300 ease-out font-Big_Shoulders_Display text-xl flex gap-3 items-center ' +
           item.class
         "
-        @click="emit('title', item.id)"
+        @click="emit('title', i)"
         :href="item.to"
         ><i :class="item.icon"></i>{{ item.title }}</a
       >

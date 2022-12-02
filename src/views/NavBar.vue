@@ -86,10 +86,9 @@ const bottom_links = ref<LinkData[]>([
     dropNames: [
       { to: '/about', text: 'About 37 NMTC' },
       { to: '/about', text: 'Philosophy, Goals & Objectives' },
-      { to: '/about', text: 'Management' },
+      { to: '/about', text: 'Organization & Governance' },
       { to: '/about', text: 'Management Committees' },
       { to: '/about', text: 'Our Staff' },
-      { to: '/about', text: 'Partner & Affiliates' },
     ],
   },
   {

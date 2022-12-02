@@ -25,6 +25,7 @@
           :key="k"
           v-for="(data, k) in props.links[i].dropNames"
           class="w-full whitespace-nowrap"
+          @click="content = k"
         >
           <router-link :to="data.to">{{ data.text }}</router-link>
         </li>
@@ -36,6 +37,10 @@
 <script setup lang="ts">
 import { LinkData } from '@/interfaces'
 import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/appStore'
+
+const { content } = storeToRefs(useAppStore())
 
 // [ ] add library to the links and in the menus there should be e-learning
 // [ ] add

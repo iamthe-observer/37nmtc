@@ -7,6 +7,7 @@ import { useRoute } from 'vue-router'
 export const useAppStore = defineStore('app', () => {
   const nav_ref = ref<HTMLDivElement>()
   const target_ref = ref<HTMLDivElement>()
+  const content = ref<number>(0)
 
   const route = useRoute()
   const current_route = computed(() => {
@@ -28,5 +29,12 @@ export const useAppStore = defineStore('app', () => {
     return window.height.value - content.height.value
   }
 
-  return { target_ref, nav_ref, setElement, diff_content_nav, current_route }
+  return {
+    target_ref,
+    nav_ref,
+    setElement,
+    diff_content_nav,
+    current_route,
+    content,
+  }
 })

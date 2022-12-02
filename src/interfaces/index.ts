@@ -19,7 +19,5 @@ export interface MenuItem {
   to?: string
   icon?: string
   disabled?: boolean
-  nested_menu?: MenuItem
-  component?: object
-  id?: string
+  nested_menu?: MenuItem[]
 }

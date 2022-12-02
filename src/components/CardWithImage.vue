@@ -30,7 +30,7 @@
         :class="
           isHovered
             ? 'bg-cover w-full h-full absolute inset-0 blur-sm brightness-30 rounded-lg  transition-all duration-300 ease-out'
-            : 'bg-cover w-full h-full absolute inset-0 brightness-50 rounded-lg transition-all duration-300 ease-out'
+            : 'bg-cover w-full h-full absolute inset-0 brightness-75 rounded-lg transition-all duration-300 ease-out'
         "
       />
     </div>
