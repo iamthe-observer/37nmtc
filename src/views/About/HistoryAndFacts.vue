@@ -190,7 +190,6 @@ nursing practical, pharmacology
 </template>
 
 <script setup lang="ts">
-import Fieldset from 'primevue/fieldset'
 import { NTimeline, NTimelineItem } from 'naive-ui'
 </script>
 

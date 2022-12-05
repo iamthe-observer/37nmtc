@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 w-full">
+  <div class="p-3 w-full relative">
     <h1 class="text-[3em] font-Bebas_Neue mt-8 mb-10">Philosophy</h1>
 
     <div
@@ -133,7 +133,6 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import Fieldset from 'primevue/fieldset'
 
 const philo_content = ref(['Person', 'Health', 'Nursing', 'Education'])
 const index = ref(0)

@@ -34,6 +34,8 @@ import SideMenu from '@/components/SideMenu.vue'
 import { MenuItem } from '@/interfaces'
 import HistoryAndFacts from './HistoryAndFacts.vue'
 import PhilosophyGoalsObj from './PhilosophyGoalsObj.vue'
+import ManagementCommittee from './ManagementCommittees/Layout.vue'
+import OrganizationGovernance from './Organization&Governance.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/appStore'
 
@@ -43,7 +45,12 @@ function changeContent(num: number) {
   content.value = num
 }
 
-const about_components = markRaw([HistoryAndFacts, PhilosophyGoalsObj])
+const about_components = markRaw([
+  HistoryAndFacts,
+  PhilosophyGoalsObj,
+  OrganizationGovernance,
+  ManagementCommittee,
+])
 
 const about_items = ref<MenuItem[]>([
   {
