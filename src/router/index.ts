@@ -13,6 +13,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'about us',
     component: About_Us,
   },
+  // {
+  //   path: '/academics',
+  //   name: 'academics',
+  //   // component: Academics,
+  // },
 ]
 
 const router = createRouter({

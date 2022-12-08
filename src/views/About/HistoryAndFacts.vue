@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 w-full">
+  <div class="p-4 w-full">
     <h1 class="text-[3em] font-Bebas_Neue mt-8 mb-10">
       History & Facts about 37NMTC
     </h1>

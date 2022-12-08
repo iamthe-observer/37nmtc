@@ -1,8 +1,6 @@
 <template>
   <transition name="fade" mode="out-in">
-    <keep-alive>
-      <component :is="current_content" />
-    </keep-alive>
+    <component :is="current_content" />
   </transition>
 </template>
 

@@ -36,7 +36,6 @@
 
 <script setup lang="ts">
 import { LinkData } from '@/interfaces'
-import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/appStore'
 
@@ -46,15 +45,6 @@ const { content } = storeToRefs(useAppStore())
 // [ ] add
 
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
-const router = useRouter()
-
-function goTo(route: string) {
-  if (route) {
-    router.push(route)
-  } else {
-    return
-  }
-}
 </script>
 
 <style scoped></style>

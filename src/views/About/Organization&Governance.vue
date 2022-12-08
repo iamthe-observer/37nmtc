@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 w-full relative">
+  <div class="p-4 w-full relative">
     <h1 class="text-[3em] font-Bebas_Neue mt-8 mb-10">
       Organization And Governance
     </h1>

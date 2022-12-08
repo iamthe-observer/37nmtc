@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 w-full relative">
+  <div class="p-4 w-full relative">
     <h1 class="text-[3em] font-Bebas_Neue mt-8 mb-10">Philosophy</h1>
 
     <div
@@ -8,9 +8,9 @@
       <img class="child" src="@/assets/socrates.jpeg" alt="" />
 
       <div
-        class="absolute top-0 right-20 h-full max-w-[30%] backdrop-blur-md font-Big_Shoulders_Display px-3 flex flex-col items-center justify-around text-white text-2xl border-x-2 border-x-[#b9b9b94d]"
+        class="absolute top-0 right-20 h-full max-w-[30%] backdrop-blur-md font-Big_Shoulders_Display px-3 flex flex-col items-center justify-around text-white text-2xl border-x-2 border-x-[#b9b9b94d] bg-animate"
       >
-        <div v-motion-pop v-if="content === 'Person'" class="">
+        <div v-motion-fade-visible-once v-if="content === 'Person'" class="">
           <div class="text-3xl font-Bebas_Neue underline">Person</div>
           <span>
             Each person is a unique being of worth and dignity, capable of
@@ -19,7 +19,7 @@
           </span>
         </div>
 
-        <div v-motion-pop v-if="content === 'Health'" class="">
+        <div v-motion-fade-visible-once v-if="content === 'Health'" class="">
           <div class="text-3xl font-Bebas_Neue underline">Health</div>
           <span>
             We lay premium on total quality ot health, not merely tne absence of
@@ -29,7 +29,7 @@
           </span>
         </div>
 
-        <div v-motion-pop v-if="content === 'Nursing'" class="">
+        <div v-motion-fade-visible-once v-if="content === 'Nursing'" class="">
           <div class="text-3xl font-Bebas_Neue underline">Nursing</div>
           <span>
             We are committed to training and equipping soldiers and Civilians
@@ -39,7 +39,7 @@
           </span>
         </div>
 
-        <div v-motion-pop v-if="content === 'Education'" class="">
+        <div v-motion-fade-visible-once v-if="content === 'Education'" class="">
           <div class="text-3xl font-Bebas_Neue underline">Education</div>
           <span>
             The purpose of education is to train the individual and the
@@ -56,7 +56,7 @@
     <div class="divider"></div>
 
     <Fieldset class="my-10 shadow-lg"
-      ><template #legend> <h1>Our Aim</h1></template
+      ><template #legend><h1>Our Aim</h1></template
       ><span
         >IS to produce an efficient, effective and disciplined polyvalent
         nurse.</span
@@ -134,8 +134,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 
-const philo_content = ref(['Person', 'Health', 'Nursing', 'Education'])
 const index = ref(0)
+const philo_content = ref(['Person', 'Health', 'Nursing', 'Education'])
 const content = computed(() => philo_content.value[index.value])
 
 onMounted(() => {
@@ -155,5 +155,20 @@ onMounted(() => {
 }
 .child {
   background-image: url('../../assets/socrates.jpeg');
+}
+
+@keyframes animateTHISbg {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background: rgba(0, 0, 0, 1);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+.bg-animate {
+  animation: animateTHISbg 10s linear infinite;
 }
 </style>

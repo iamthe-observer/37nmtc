@@ -36,6 +36,7 @@ import HistoryAndFacts from './HistoryAndFacts.vue'
 import PhilosophyGoalsObj from './PhilosophyGoalsObj.vue'
 import ManagementCommittee from './ManagementCommittees/Layout.vue'
 import OrganizationGovernance from './Organization&Governance.vue'
+import OurStaff from './OurStaff.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/appStore'
 
@@ -50,6 +51,7 @@ const about_components = markRaw([
   PhilosophyGoalsObj,
   OrganizationGovernance,
   ManagementCommittee,
+  OurStaff,
 ])
 
 const about_items = ref<MenuItem[]>([
