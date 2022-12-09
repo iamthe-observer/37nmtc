@@ -14,9 +14,14 @@
           'link link-hover h-auto w-full rounded-md px-2 py-1 hover:text-white  hover:bg-primaryclr transition-all stickyer duration-700 ease-out font-Big_Shoulders_Display text-xl flex gap-3 items-center ' +
           item.class
         "
-        @click="emit('title', i)"
+        @click="handleClick(i)"
         :href="item.to"
-        ><i :class="item.icon"></i>{{ item.title }}</a
+      >
+        <div
+          v-if="selected_link === i"
+          class="bg-primaryclr border-black border-1 aspect-square w-[20px] rounded-md"
+        ></div>
+        {{ item.title }}</a
       >
     </div>
   </div>
@@ -24,11 +29,18 @@
 
 <script setup lang="ts">
 import { MenuItem } from '@/interfaces'
+import { ref } from 'vue'
 
+const selected_link = ref()
 const emit = defineEmits(['title'])
 const props = defineProps<{
   model: MenuItem[]
 }>()
+
+const handleClick = (i: number) => {
+  emit('title', i)
+  selected_link.value = i
+}
 </script>
 
 <style scoped>

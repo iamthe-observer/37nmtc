@@ -25,7 +25,7 @@
           :key="k"
           v-for="(data, k) in props.links[i].dropNames"
           class="w-full whitespace-nowrap"
-          @click="content = k"
+          @click="handleCLick(link, k)"
         >
           <router-link :to="data.to">{{ data.text }}</router-link>
         </li>
@@ -39,12 +39,20 @@ import { LinkData } from '@/interfaces'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/appStore'
 
-const { content } = storeToRefs(useAppStore())
+const { about_content, academics_content } = storeToRefs(useAppStore())
 
 // [ ] add library to the links and in the menus there should be e-learning
 // [ ] add
 
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
+
+function handleCLick(link: LinkData, i: number) {
+  if (link.name === 'About Us') {
+    about_content.value = i
+  } else if (link.name === 'Academics') {
+    academics_content.value = i
+  }
+}
 </script>
 
 <style scoped></style>

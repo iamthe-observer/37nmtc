@@ -8,18 +8,18 @@
         <div class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex">
           <!-- sidebar -->
           <div class="text-sm">
-            <SideMenu @title="changeContent" :model="about_items">
+            <SideMenu @title="changeContent" :model="academics_items">
               <template #head>
-                <i class="pi pi-compass"></i> About 37NMTC</template
+                <i class="pi pi-book font-bold"></i> Academics</template
               >
             </SideMenu>
           </div>
 
           <!-- content -->
           <ComponentSwitcher
-            :content="about_content!"
-            :items="about_items"
-            :components="about_components"
+            :content="academics_content!"
+            :items="academics_items"
+            :components="academics_components"
           />
         </div>
         <Footer />
@@ -31,52 +31,44 @@
 <script setup lang="ts">
 import { markRaw, ref } from 'vue'
 import ComponentSwitcher from '@/components/ComponentSwitcher.vue'
-import { PrimeIcons } from 'primevue/api'
 import SideMenu from '@/components/SideMenu.vue'
 import { MenuItem } from '@/interfaces'
-import HistoryAndFacts from './HistoryAndFacts.vue'
-import PhilosophyGoalsObj from './PhilosophyGoalsObj.vue'
-import ManagementCommittee from './ManagementCommittees/Layout.vue'
-import OrganizationGovernance from './Organization&Governance.vue'
-import OurStaff from './OurStaff.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/appStore'
 import { onMounted } from 'vue'
 import { useTitle } from '@vueuse/core'
+import AcademicPolicies from './AcademicPolicies/Layout.vue'
 
 onMounted(() => {
-  useTitle('37NMTC | About')
+  useTitle('37NMTC | Academics')
 })
 
-const { about_content } = storeToRefs(useAppStore())
+const { academics_content } = storeToRefs(useAppStore())
 
 function changeContent(num: number) {
-  about_content.value = num
+  academics_content.value = num
 }
 
-const about_components = markRaw([
-  HistoryAndFacts,
-  PhilosophyGoalsObj,
-  OrganizationGovernance,
-  ManagementCommittee,
-  OurStaff,
-])
+const academics_components = markRaw([AcademicPolicies])
 
-const about_items = ref<MenuItem[]>([
+const academics_items = ref<MenuItem[]>([
   {
-    title: 'History & Facts',
+    title: 'Academic Policies',
   },
   {
-    title: 'Philosophy, Goals & Objectives',
+    title: 'Channel of Communications',
   },
   {
-    title: 'Organization & Governance',
+    title: 'Programmes and Courses',
   },
   {
-    title: 'Management Committees',
+    title: 'Teaching Staff',
   },
   {
-    title: 'Our Staff',
+    title: 'Academic Calendar',
+  },
+  {
+    title: 'Academic Facilities',
   },
 ])
 </script>

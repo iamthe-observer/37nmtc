@@ -30,7 +30,13 @@
 
 <script setup lang="ts">
 import Carousel from '@/components/Carousel.vue'
+import { useTitle } from '@vueuse/core'
 import Content from './Content.vue'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  useTitle('37NMTC | Home')
+})
 </script>
 
 <style scoped>

@@ -1,7 +1,9 @@
 <template>
   <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="false">
     <template #legend
-      ><div class="font-bold font-Outfit">Academic Committee</div></template
+      ><div class="font-bold font-Outfit">
+        Assessment / Evaluation of Students' Performance
+      </div></template
     >
 
     <div class="text-left">
@@ -32,5 +34,3 @@
     </div>
   </Fieldset>
 </template>
-
-<script setup lang="ts"></script>
