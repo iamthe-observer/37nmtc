@@ -10,11 +10,13 @@ import NavBar from './views/NavBar.vue'
 import PrimeVue from 'primevue/config'
 import { MotionPlugin } from '@vueuse/motion'
 import Fieldset from 'primevue/fieldset'
+import CUM from '@/components/UnderMaintenance.vue'
 
 const app = createApp(App)
 app.component('Footer', Footer)
 app.component('NavBar', NavBar)
 app.component('Fieldset', Fieldset)
+app.component('ComponentUM', CUM)
 app.use(router)
 app.use(MotionPlugin)
 app.use(createPinia())

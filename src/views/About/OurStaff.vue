@@ -54,15 +54,6 @@ const srcList = ref([
   'https://picsum.photos/id/10/100/100',
 ])
 const SRCList = ref([
-  'https://picsum.photos/id/1/100/100',
-  'https://picsum.photos/id/2/100/100',
-  'https://picsum.photos/id/3/100/100',
-  'https://picsum.photos/id/4/100/100',
-  'https://picsum.photos/id/5/100/100',
-  'https://picsum.photos/id/6/100/100',
-  'https://picsum.photos/id/7/100/100',
-  'https://picsum.photos/id/8/100/100',
-  'https://picsum.photos/id/9/100/100',
   'https://picsum.photos/id/11/100/100',
   'https://picsum.photos/id/12/100/100',
   'https://picsum.photos/id/13/100/100',
@@ -71,5 +62,14 @@ const SRCList = ref([
   'https://picsum.photos/id/16/100/100',
   'https://picsum.photos/id/17/100/100',
   'https://picsum.photos/id/18/100/100',
+  'https://picsum.photos/id/19/100/100',
+  'https://picsum.photos/id/21/100/100',
+  'https://picsum.photos/id/22/100/100',
+  'https://picsum.photos/id/23/100/100',
+  'https://picsum.photos/id/24/100/100',
+  'https://picsum.photos/id/25/100/100',
+  'https://picsum.photos/id/26/100/100',
+  'https://picsum.photos/id/27/100/100',
+  'https://picsum.photos/id/28/100/100',
 ])
 </script>

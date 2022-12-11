@@ -8,18 +8,18 @@
         <div class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex">
           <!-- sidebar -->
           <div class="text-sm">
-            <SideMenu @title="changeContent" :model="academics_items">
+            <SideMenu @title="changeContent" :model="admission_items">
               <template #head>
-                <i class="pi pi-book font-bold"></i> Academics</template
+                <i class="pi pi-user-plus font-bold"></i> Admission</template
               >
             </SideMenu>
           </div>
 
           <!-- content -->
           <ComponentSwitcher
-            :content="academics_content!"
-            :items="academics_items"
-            :components="academics_components"
+            :content="admission_content!"
+            :items="admission_items"
+            :components="admission_components"
           />
         </div>
         <Footer />
@@ -37,46 +37,41 @@ import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/appStore'
 import { onMounted } from 'vue'
 import { useTitle } from '@vueuse/core'
-import AcademicPolicies from './AcademicPolicies/Layout.vue'
-import ChannelOfComm from './ChannelOfComm.vue'
-import Programmes from './Programmes.vue'
-import Facilities from './Facilities.vue'
+
+import Admitted from './AdmittedStds.vue'
+import AplProceed from './ApplicationProcedure.vue'
+import EntryReq from './EntryReq.vue'
+import FinancialPolicy from './FinancialPolicy.vue'
 
 onMounted(() => {
-  useTitle('37NMTC | Academics')
+  useTitle('37NMTC | Admission')
 })
 
-const { academics_content } = storeToRefs(useAppStore())
+const { admission_content } = storeToRefs(useAppStore())
 
 function changeContent(num: number) {
-  academics_content.value = num
+  admission_content.value = num
 }
 
-const academics_components = markRaw([
-  AcademicPolicies,
-  ChannelOfComm,
-  Programmes,
-  Facilities,
+const admission_components = markRaw([
+  Admitted,
+  EntryReq,
+  AplProceed,
+  FinancialPolicy,
 ])
 
-const academics_items = ref<MenuItem[]>([
+const admission_items = ref<MenuItem[]>([
   {
-    title: 'Academic Policies',
+    title: 'Admitted Students',
   },
   {
-    title: 'Channel of Communications',
+    title: 'Entry Requirements',
   },
   {
-    title: 'Programmes and Courses',
+    title: 'Application Procedures',
   },
-  // {
-  //   title: 'Teaching Staff',
-  // },
-  // {
-  //   title: 'Academic Calendar',
-  // },
   {
-    title: 'Academic Facilities',
+    title: 'Financial Policy',
   },
 ])
 </script>

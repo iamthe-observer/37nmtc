@@ -9,6 +9,7 @@ export const useAppStore = defineStore('app', () => {
   const target_ref = ref<HTMLDivElement>()
   const about_content = ref<number>(0)
   const academics_content = ref<number>(0)
+  const admission_content = ref<number>(0)
 
   const route = useRoute()
   const current_route = computed(() => {
@@ -36,6 +37,7 @@ export const useAppStore = defineStore('app', () => {
     current_route,
     about_content,
     academics_content,
+    admission_content,
     setElement,
     diff_content_nav,
   }

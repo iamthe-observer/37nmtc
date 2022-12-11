@@ -97,20 +97,20 @@ const bottom_links = ref<LinkData[]>([
     dropNames: [
       { to: '/academics', text: 'Academic Regulations' },
       { to: '/academics', text: 'Channel of Communications' },
-      { to: '/academics', text: 'Academic Calendar' },
       { to: '/academics', text: 'Programmes & Courses' },
-      { to: '/academics', text: 'Teaching Staff' },
       { to: '/academics', text: 'Academic Facilities' },
+      // { to: '/academics', text: 'Academic Calendar' },
+      // { to: '/academics', text: 'Teaching Staff' },
     ],
   },
   {
     name: 'Admission',
     hasDropdown: true,
     dropNames: [
-      { to: '/about', text: 'Admitted Students' },
-      { to: '/about', text: 'Entry Requirements' },
-      { to: '/about', text: 'Application Procedures' },
-      { to: '/about', text: 'Financial Policy' },
+      { to: '/admission', text: 'Admitted Students' },
+      { to: '/admission', text: 'Entry Requirements' },
+      { to: '/admission', text: 'Application Procedures' },
+      { to: '/admission', text: 'Financial Policy' },
     ],
   },
   {

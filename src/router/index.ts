@@ -1,6 +1,7 @@
 import Home from '@/views/Home/Layout.vue'
 import About_Us from '@/views/About/Layout.vue'
 import Academics from '@/views/Academics/Layout.vue'
+import Admission from '@/views/Admission/Layout.vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
@@ -18,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/academics',
     name: 'academics',
     component: Academics,
+  },
+  {
+    path: '/admission',
+    name: 'admission',
+    component: Admission,
   },
 ]
 

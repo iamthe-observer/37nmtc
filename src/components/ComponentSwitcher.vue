@@ -1,6 +1,8 @@
 <template>
   <transition name="fade" mode="out-in">
-    <component :is="current_content" />
+    <keep-alive>
+      <component :is="current_content" />
+    </keep-alive>
   </transition>
 </template>
 
@@ -16,8 +18,6 @@ const props = defineProps<{
 
 const current_content = computed(() => {
   for (let ii = 0; ii < props.items.length; ii++) {
-    const item = props.items[ii]
-
     if (props.content === ii) {
       return props.components[ii]
     }

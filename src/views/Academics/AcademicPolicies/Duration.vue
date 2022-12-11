@@ -1,17 +1,18 @@
 <template>
-  <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="false">
+  <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="true">
     <template #legend
       ><div class="font-bold font-Outfit">
-        Assessment / Evaluation of Students' Performance
+        Duration of End of Semester Examination
       </div></template
     >
 
     <div class="text-left">
+      <p>
+        The duration of the End-of-Semester Examination will be determined by
+        the credit weighting of courses as follows:
+      </p>
       <ol class="list-disc pl-10">
-        <li>
-          Students will be assessed through practical and written examination,
-          class assignments, presentations, care study and research work.
-        </li>
+        <li></li>
         <li>
           The Policy of the Programme Recommends that:
           <ol class="list-inside pl-10">
