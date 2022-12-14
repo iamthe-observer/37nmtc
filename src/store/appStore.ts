@@ -10,6 +10,7 @@ export const useAppStore = defineStore('app', () => {
   const about_content = ref<number>(0)
   const academics_content = ref<number>(0)
   const admission_content = ref<number>(0)
+  const students_content = ref<number>(0)
 
   const route = useRoute()
   const current_route = computed(() => {
@@ -40,5 +41,6 @@ export const useAppStore = defineStore('app', () => {
     admission_content,
     setElement,
     diff_content_nav,
+    students_content,
   }
 })

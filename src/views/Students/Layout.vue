@@ -7,18 +7,18 @@
         <div class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex">
           <!-- sidebar -->
           <div class="text-sm">
-            <SideMenu @title="changeContent" :model="admission_items">
+            <SideMenu @title="changeContent" :model="students_items">
               <template #head>
-                <i class="pi pi-user-plus font-bold"></i> Admission</template
+                <i class="pi pi-users font-bold"></i> Students</template
               >
             </SideMenu>
           </div>
 
           <!-- content -->
           <ComponentSwitcher
-            :content="admission_content!"
-            :items="admission_items"
-            :components="admission_components"
+            :content="students_content!"
+            :items="students_items"
+            :components="students_components"
           />
         </div>
         <Footer />
@@ -37,40 +37,31 @@ import { useAppStore } from '@/store/appStore'
 import { onMounted } from 'vue'
 import { useTitle } from '@vueuse/core'
 
-import Admitted from './AdmittedStds.vue'
-import AplProceed from './ApplicationProcedure.vue'
-import EntryReq from './EntryReq.vue'
-import FinancialPolicy from './FinancialPolicy.vue'
+import SRC from './SRC.vue'
+import CampusLife from './CampusLife.vue'
+import Rules from './Rules.vue'
 
 onMounted(() => {
-  useTitle('37NMTC | Admission')
+  useTitle('37NMTC | Students')
 })
 
-const { admission_content } = storeToRefs(useAppStore())
+const { students_content } = storeToRefs(useAppStore())
 
 function changeContent(num: number) {
-  admission_content.value = num
+  students_content.value = num
 }
 
-const admission_components = markRaw([
-  Admitted,
-  EntryReq,
-  AplProceed,
-  FinancialPolicy,
-])
+const students_components = markRaw([SRC, CampusLife, Rules])
 
-const admission_items = ref<MenuItem[]>([
+const students_items = ref<MenuItem[]>([
   {
-    title: 'Admitted Students',
+    title: "Students' Representative Council",
   },
   {
-    title: 'Entry Requirements',
+    title: 'Campus Life',
   },
   {
-    title: 'Application Procedures',
-  },
-  {
-    title: 'Financial Policy',
+    title: 'Disciplinary Rules',
   },
 ])
 </script>

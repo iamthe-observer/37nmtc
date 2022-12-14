@@ -1,8 +1,6 @@
 <template>
   <div class="p-4 w-full relative text-center">
-    <h1 class="text-[3em] font-Bebas_Neue mt-16 mb-20">
-      Offical Channel of Communication
-    </h1>
+    <h1 class="text-[3em] font-Bebas_Neue mt-16 mb-20">Financial Policy</h1>
 
     <div class="flex-col flex gap-8">
       <Fieldset class="pb-8 shadow-lg"

@@ -117,15 +117,14 @@ const bottom_links = ref<LinkData[]>([
     name: 'Students',
     hasDropdown: true,
     dropNames: [
-      { to: '/about', text: "Students' Representative Council" },
-      { to: '/about', text: 'Campus Life' },
-      { to: '/about', text: 'Disciplinary Rules' },
-      { to: '/about', text: "Student's Portal" },
+      { to: '/students', text: "Students' Representative Council" },
+      { to: '/students', text: 'Campus Life' },
+      { to: '/students', text: 'Disciplinary Rules' },
     ],
   },
   {
     name: 'News',
-    route: '/',
+    route: '/news',
     hasDropdown: false,
   },
   {

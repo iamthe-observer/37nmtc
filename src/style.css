@@ -76,3 +76,28 @@ body,
   margin: 0;
   box-sizing: border-box;
 }
+
+.striped-bg {
+  position: relative;
+  border-radius: 15px;
+  width: 200px;
+  height: 200px;
+  background: repeating-linear-gradient(
+    to bottom right,
+    #039be5 15px,
+    #039be5 20px,
+    #90caf9 10px,
+    #90caf9 25px
+  );
+}
+
+.dotted-bg {
+  background-image: radial-gradient(#212121 20%, transparent 20%),
+    radial-gradient(#fafafa 20%, transparent 20%);
+  background-color: gray;
+  border-radius: 15px;
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  height: 200px;
+  width: 200px;
+}

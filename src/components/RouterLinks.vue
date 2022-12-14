@@ -39,10 +39,15 @@ import { LinkData } from '@/interfaces'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/appStore'
 
-const { about_content, academics_content } = storeToRefs(useAppStore())
+const {
+  about_content,
+  academics_content,
+  admission_content,
+  students_content,
+} = storeToRefs(useAppStore())
 
+// [ ] link should highlight when clicked on in navbar
 // [ ] add library to the links and in the menus there should be e-learning
-// [ ] add
 
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
 
@@ -51,6 +56,10 @@ function handleCLick(link: LinkData, i: number) {
     about_content.value = i
   } else if (link.name === 'Academics') {
     academics_content.value = i
+  } else if (link.name === 'Admission') {
+    admission_content.value = i
+  } else if (link.name === 'Students') {
+    students_content.value = i
   }
 }
 </script>
