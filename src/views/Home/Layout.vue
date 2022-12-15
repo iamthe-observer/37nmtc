@@ -14,7 +14,7 @@
         </div>
 
         <span
-          class="absolute text-[7.5em] text-white font-bold top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-Fredoka_One drop-shadow-xl"
+          class="absolute text-[7.5em] text-white font-bold top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-Cyberion drop-shadow-xl"
           >37NMTC</span
         >
       </div>
