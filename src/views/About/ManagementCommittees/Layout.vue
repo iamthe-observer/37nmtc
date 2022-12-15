@@ -1,11 +1,9 @@
 <template>
   <div class="p-4 w-full relative text-center">
-    <h1 class="text-[3em] font-Bebas_Neue mt-16 mb-20">
-      Management Committees
-    </h1>
+    <h1 class="text-[3em] font-Cheorcy my-16">Management Committees</h1>
 
     <!-- content components -->
-    <div class="flex-col flex gap-8">
+    <div class="flex-col flex gap-16">
       <Academic />
       <QualityAssurance />
       <Disciplinary />

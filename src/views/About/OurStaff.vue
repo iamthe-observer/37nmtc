@@ -1,12 +1,17 @@
 <template>
   <div class="p-4 w-full relative">
-    <n-tabs type="bar">
+    <n-tabs
+      type="bar"
+      :animated="true"
+      size="large"
+      class="font-Bebas_Neue font-bold text-3xl"
+    >
       <n-tab-pane name="teaching staff" tab="Teaching Staff">
         <div class="grid grid-cols-3 gap-8 h-full">
           <div
             v-for="(src, index) in srcList"
             :key="index"
-            class="card card-compact w-72 bg-base-100 shadow-xl rounded-lg"
+            class="card card-compact w-72 bg-base-100 hover:-translate-y-3 rounded-none hover:striped-bg hover:text-white transition-all duration-300 ease-out hover:box-box border-me font-Outfit"
           >
             <figure>
               <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
@@ -22,7 +27,7 @@
           <div
             v-for="(src, index) in SRCList"
             :key="index"
-            class="card card-compact w-72 bg-base-100 shadow-xl rounded-lg"
+            class="card card-compact w-72 bg-base-100 hover:-translate-y-3 rounded-none hover:striped-bg hover:text-white transition-all duration-300 ease-out hover:box-box border-me font-Outfit"
           >
             <figure>
               <img src="https://placeimg.com/400/225/arch" alt="Shoes" />

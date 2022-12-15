@@ -4,6 +4,7 @@
       class="bg-primaryclr w-full min-h-full border-t-[3px] border-black px-5 py-4 flex gap-8"
     >
       <div
+        v-motion-slide-visible-once-left
         class="bg-white w-[30%] text-black p-8 border-[3px] border-black m-3 box-box flex items-center flex-col font-Outfit"
       >
         <!-- newsletters -->
@@ -47,6 +48,7 @@
 
       <!-- other info -->
       <div
+        v-motion-slide-visible-once-right
         class="flex-1 bg-white text-black p-8 border-[3px] border-black m-3 box-box flex items-start justify-between gap-3 font-Outfit"
       >
         <!-- links -->
@@ -166,11 +168,11 @@ onMounted(() => {
 
   for (let ii = 0; ii < lk1!.length; ii++) {
     const lk = lk1![ii]
-    lk.classList.add('hover:text-trebleclr')
+    lk.classList.add('hover:text-secondaryclr')
   }
   for (let jj = 0; jj < lk2!.length; jj++) {
     const lk = lk2![jj]
-    lk.classList.add('hover:text-trebleclr')
+    lk.classList.add('hover:text-secondaryclr')
   }
 
   // console.log(lk1, lk2)

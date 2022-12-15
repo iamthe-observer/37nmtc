@@ -1,9 +1,11 @@
 <template>
   <div class="">
-    <h1>Grading System</h1>
-    <p>The grading of examination results shall be as follows:</p>
-    <n-table :single-line="false">
-      <thead class="font-Bebas_Neue">
+    <h1 class="text-3xl font-Cyberion hover-underline-animation mb-4">
+      Grading System
+    </h1>
+    <p class="mb-2">The grading of examination results shall be as follows:</p>
+    <n-table :single-line="false" :bordered="true">
+      <thead class="font-Bebas_Neue text-xl">
         <tr>
           <th>Grade</th>
           <th>Mark Range</th>
@@ -63,34 +65,46 @@
       </tbody>
     </n-table>
 
-    <Panel class="mt-10">
-      <template #header> Explantory Notes </template>
-      <div class="text-left">
-        <ol class="list-disc pl-10">
-          <li>
-            The Minimum Grade Point Average (MGPA) required to secure
-            continuation in a programme is 1.5.
-          </li>
-          <li>
-            A student whose grade falls below 1.5 will be repeated until she
-            achieves the MGPA of 20.
-          </li>
-          <li>
-            A student is awarded X by the academic committee as unsatisfactory
-            if unable to complete a course.
-          </li>
-          <li>
-            Grade Z is awarded on account of exam malpractice and the student
-            may be prevented from taking exams for a period or expelled
-            indefinitely.
-          </li>
-        </ol>
+    <div
+      class="mt-12 collapse collapse-open w-full text-left border-[3px] border-black boxer"
+    >
+      <input type="checkbox" class="peer" />
+      <div
+        class="collapse-title bg-black striped-bg-important text-white border-b-[3px] border-black text-left"
+      >
+        <span :class="'text-3xl font-Cyberion'"> Explantory Notes</span>
       </div>
-    </Panel>
+      <div class="pt-5 collapse-content bg-white text-black">
+        <div :class="'font-Outfit font-bold'">
+          <div class="text-left">
+            <ol class="list-disc pl-10">
+              <li>
+                The Minimum Grade Point Average (MGPA) required to secure
+                continuation in a programme is 1.5.
+              </li>
+              <li>
+                A student whose grade falls below 1.5 will be repeated until she
+                achieves the MGPA of 20.
+              </li>
+              <li>
+                A student is awarded X by the academic committee as
+                unsatisfactory if unable to complete a course.
+              </li>
+              <li>
+                Grade Z is awarded on account of exam malpractice and the
+                student may be prevented from taking exams for a period or
+                expelled indefinitely.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { NTable } from 'naive-ui'
-import Panel from 'primevue/panel'
+
+const classer = 'striped-bg-important'
 </script>

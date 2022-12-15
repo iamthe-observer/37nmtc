@@ -43,8 +43,8 @@
 import { LinkData } from '@/interfaces'
 import { onMounted, ref } from 'vue'
 
-// [ ] link should highlight when clicked on in navbar
 // [ ] add library to the links and in the menus there should be e-learning
+// [ ] fix navbar overlaying the scrollbar
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
 
 const emit = defineEmits(['isHovered'])

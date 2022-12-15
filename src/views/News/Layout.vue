@@ -4,7 +4,9 @@
       <div
         class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen overflow-x-hidden"
       >
-        <div class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex">
+        <div
+          class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex gap-8"
+        >
           <Content />
         </div>
         <Footer />

@@ -39,10 +39,6 @@
     -webkit-text-stroke: 4px black;
   }
 
-  .text-shadow {
-    text-shadow: 4px 4px black;
-  }
-
   .hover-underline-animation {
     display: inline-block;
     position: relative;
@@ -72,6 +68,11 @@
     -moz-box-shadow: 12px 12px 0px 0px #000;
   }
 
+  .conta {
+    border-radius: 0px;
+    box-shadow: 30px 30px 56px #9f9f9f, -30px -30px 56px #ffffff;
+  }
+
   .box-box-sec {
     box-shadow: -12px 12px 0px 0px #110d3d;
     -webkit-box-shadow: -12px 12px 0px 0px #110d3d;
@@ -80,6 +81,10 @@
 }
 
 @layer utilities {
+  .text-shadow {
+    text-shadow: 4px 4px black;
+  }
+
   .neu-box {
     transform: all 300ms ease-out;
   }
@@ -107,21 +112,32 @@
     text-orientation: none;
   }
 
+  .striped-bg-important {
+    position: relative;
+    background: repeating-linear-gradient(
+      to bottom right,
+      #084600 15px,
+      #084600 20px,
+      #000 10px,
+      #000 25px
+    );
+  }
+
   .striped-bg {
     position: relative;
     background: repeating-linear-gradient(
       to bottom right,
-      #525252 15px,
-      #525252 20px,
+      #333333 15px,
+      #333333 20px,
       #000 10px,
       #000 25px
     );
   }
 
   .dotted-bg {
-    background-image: radial-gradient(#212121 20%, transparent 20%),
-      radial-gradient(#fafafa 20%, transparent 20%);
-    background-color: gray;
+    background-image: radial-gradient(#050505 20%, transparent 20%),
+      radial-gradient(#1b1b1b 20%, transparent 20%);
+    background-color: rgb(15, 15, 15);
     background-position: 0 0, 10px 10px;
     background-size: 20px 20px;
   }

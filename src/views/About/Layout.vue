@@ -5,7 +5,9 @@
       <div
         class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen overflow-x-hidden"
       >
-        <div class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex">
+        <div
+          class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex gap-8"
+        >
           <!-- sidebar -->
           <div class="text-sm">
             <SideMenu @title="changeContent" :model="about_items">
@@ -31,7 +33,6 @@
 <script setup lang="ts">
 import { markRaw, ref } from 'vue'
 import ComponentSwitcher from '@/components/ComponentSwitcher.vue'
-import { PrimeIcons } from 'primevue/api'
 import SideMenu from '@/components/SideMenu.vue'
 import { MenuItem } from '@/interfaces'
 import HistoryAndFacts from './HistoryAndFacts.vue'

@@ -1,29 +1,60 @@
 <template>
   <div class="p-4 w-full relative">
-    <n-tabs type="bar">
+    <n-tabs
+      type="bar"
+      :animated="true"
+      size="large"
+      class="font-Bebas_Neue font-bold text-3xl"
+    >
       <n-tab-pane name="RGN" tab="Registered General Nursing">
-        <div class="grid grid-cols-2 gap-4">
-          <Panel v-for="(lvl, i) in RGNlvls" :key="i" class=""
-            ><template #header
-              ><span class="">Level {{ lvl.name }} Semester</span></template
+        <div class="grid grid-cols-2 gap-8">
+          <div
+            v-for="(lvl, i) in RGNlvls"
+            :key="i"
+            class="collapse collapse-open w-full h-fit text-left border-[3px] border-black boxer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out"
+          >
+            <input type="checkbox" class="peer" />
+            <div
+              class="collapse-title bg-black dotted-bg text-white border-b-[3px] border-black text-left whitespace-nowrap"
             >
-            <ul class="text-left pl-5">
-              <li v-for="(course, k) in lvl.courses" :key="k">{{ course }}</li>
-            </ul>
-          </Panel>
+              <span :class="'text-xl font-Cyberion'">
+                Level {{ lvl.name }} Semester</span
+              >
+            </div>
+            <div class="pt-5 collapse-content bg-white text-black">
+              <ul class="text-left pl-2 font-Outfit font-bold">
+                <li class="pb-3" v-for="(course, k) in lvl.courses" :key="k">
+                  {{ course }}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </n-tab-pane>
 
       <n-tab-pane name="RM" tab="Registered Midwifery">
-        <div class="grid grid-cols-2 gap-4">
-          <Panel v-for="(lvl, i) in RMlvls" :key="i" class=""
-            ><template #header
-              ><span class="">Level {{ lvl.name }} Semester</span></template
+        <div class="grid grid-cols-2 gap-8">
+          <div
+            v-for="(lvl, i) in RMlvls"
+            :key="i"
+            class="collapse collapse-open w-full h-fit text-left border-[3px] border-black boxer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out"
+          >
+            <input type="checkbox" class="peer" />
+            <div
+              class="collapse-title bg-black dotted-bg text-white border-b-[3px] border-black text-left whitespace-nowrap"
             >
-            <ul class="text-left pl-5">
-              <li v-for="(course, k) in lvl.courses" :key="k">{{ course }}</li>
-            </ul>
-          </Panel>
+              <span :class="'text-xl font-Cyberion'">
+                Level {{ lvl.name }} Semester</span
+              >
+            </div>
+            <div class="pt-5 collapse-content bg-white text-black">
+              <ul class="text-left pl-2 font-Outfit font-bold">
+                <li class="pb-3" v-for="(course, k) in lvl.courses" :key="k">
+                  {{ course }}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </n-tab-pane>
     </n-tabs>

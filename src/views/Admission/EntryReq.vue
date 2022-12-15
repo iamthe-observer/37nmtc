@@ -1,21 +1,21 @@
 <template>
   <div class="p-4 w-full relative text-center">
-    <h1 class="text-[3em] font-Bebas_Neue mt-16 mb-20">Admission Policy</h1>
+    <h1 class="text-[3em] font-Cheorcy mt-16 mb-20">Admission Policy</h1>
 
-    <div class="flex-col flex gap-8">
+    <div class="flex-col flex gap-16">
 
-  <p class="ml-5 text-left">The school is opened to all Ghanaians who meet the entry requirements. There are two (2) programmes run in the College:
+      <p
+        class="hover:conta box-box hover:-translate-y-1 hover:dotted-bg hover:text-white transition-all duration-300 ease-out px-8 py-5 border-[3px] border-black bg-white text-left"
+      >
+The school is opened to all Ghanaians who meet the entry requirements. There are two (2) programmes run in the College:
     <ol class="list-disc pl-10">
       <li>Registered General Nursing</li>
       <li>Registered Midwifery</li>
 
-    </ol>
-<span class="text-blue-600 text-sm">this should be an alert type container</span>
-  </p>
+    </ol>      </p>
 
-      <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="false"
-        ><template #legend>General Entry Requirements</template>
-        <div class="text-left">
+      <NeoFieldsetOpen><template #legend>General Entry Requirements</template>
+<template #content>        <div class="text-left">
           <p>
 Eligible applicant must:          </p>
 
@@ -37,11 +37,12 @@ be not less than 18 years of age and not more than 35 years.
             </li>
           </ol>
         </div>
-      </Fieldset>
+</template>
+      </NeoFieldsetOpen>
 
-      <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="true"
+      <NeoFieldset
         ><template #legend>Admission Process</template>
-        <div class="text-left">
+        <template #content><div class="text-left">
           <p>Prospective candidates must:</p>
           <ol class="list-disc pl-10">
             <li>meet tne basic programme requirement as specified by the Nursing and Midwifery Council of Ghana and Ministry of Health entry requirements.</li>
@@ -53,12 +54,12 @@ be not less than 18 years of age and not more than 35 years.
           </ol>
 <p>Note: Waiting list shall not be transferred to next admission period. The admission requirement is in line with the GAFMS/Ministry of Health policy.
         </p>
-</div>
-      </Fieldset>
+</div></template>
+      </NeoFieldset>
 
-      <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="true">
+      <NeoFieldset>
       <template #legend>Entry Requirements</template>
-      <div class="text-left">
+      <template #content><div class="text-left">
       <ol class="list-decimal pl-10">
       <li>The programme has been designed for SSS/SHS graduates with credits in WASSCE/SSSCE with a requisite aggregate 24/36 or better.</li>
 
@@ -78,39 +79,39 @@ subjects from the following:
       <li>He She be of good health</li>
       <li>He She must pass a selection interview</li>
       </ol>
-      </div>
-      </Fieldset>
+      </div></template>
+      </NeoFieldset>
 
-      <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="true"
+      <NeoFieldset
         ><template #legend>Orientation</template>
-        <div class="text-left">
+        <template #content><div class="text-left">
           <p>Students must avail themselves to orientation when necessary</p>
-</div>
-      </Fieldset>
+</div></template>
+      </NeoFieldset>
 
-      <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="true"
+      <NeoFieldset
         ><template #legend>Medical Examination</template>
-        <div class="text-left">
+        <template #content><div class="text-left">
           <p>Students must avail themselves to take prescribed medical examinations when necessary.</p>
-</div>
-      </Fieldset>
+</div></template>
+      </NeoFieldset>
 
-      <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="true"
+      <NeoFieldset
         ><template #legend>Indexing</template>
-        <div class="text-left">
+        <template #content><div class="text-left">
           <p>All fresh students will have to be indexed with the Nursing and Midwifery Council of Ghana before the first Semester ends. Students who do
 not qualify for indexing will be withdrawn from the school.</p>
-</div>
-      </Fieldset>
+</div></template>
+      </NeoFieldset>
 
-      <Fieldset class="pb-8 shadow-lg" :toggleable="true" :collapsed="true"
+      <NeoFieldset
         ><template #legend>Matriculation</template>
-        <div class="text-left">
+        <template #content><div class="text-left">
           <p>A matriculation ceremony is held in the first semester for the purpose of formally admitting into the institution all new students entering for the
 Diploma programme. Attendance at the ceremony is compulsory and no new student shall be allowed to take tne end of semester
 examinations unless he/she has been duly matriculated.</p>
-        </div>
-      </Fieldset>
+        </div></template>
+      </NeoFieldset>
     </div>
   </div>
 </template>

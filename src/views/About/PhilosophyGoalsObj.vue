@@ -1,6 +1,6 @@
 <template>
   <div class="p-4 w-full relative">
-    <h1 class="text-[3em] font-Bebas_Neue mt-8 mb-10">Philosophy</h1>
+    <h1 class="text-[3em] font-Cheorcy my-16">Philosophy</h1>
 
     <div
       class="parent relative translate-x-14 from-[rgba(0,0,0,.5)] to-transparent mb-16"
@@ -53,19 +53,91 @@
       </div>
     </div>
 
-    <div class="divider"></div>
+    <div class="divider my-16"></div>
 
-    <Fieldset class="my-10 shadow-lg"
+    <neo-fieldset-open>
+      <template #legend>Our Aim</template>
+      <template #content
+        ><span
+          >IS to produce an efficient, effective and disciplined polyvalent
+          nurse.</span
+        ></template
+      >
+    </neo-fieldset-open>
+    <!-- <Fieldset class="my-10 shadow-lg"
       ><template #legend><h1>Our Aim</h1></template
       ><span
         >IS to produce an efficient, effective and disciplined polyvalent
         nurse.</span
       ></Fieldset
-    >
+    > -->
 
-    <div class="divider"></div>
+    <div class="divider my-16"></div>
 
-    <Fieldset class="my-10 shadow-lg"
+    <neo-fieldset-open>
+      <template #legend>Goals and Objectives of Our Programmes</template>
+      <template #content>
+        <div class="mx-5">
+          <p>The knowledge, skills and attitudes would be used to:</p>
+          <ol class="list-decimal pl-10">
+            <li>
+              Perform professional functions efficiently and effectively as
+              members of the health team to:
+              <ol class="list-disc pl-10">
+                <li>
+                  Meet the needs of the patients, health needs of soldiers,
+                  their families, other individuals and the entire community.
+                </li>
+                <li>
+                  Recognize, manage and where necessary, refer clients or
+                  patients to appropriate quarters.
+                </li>
+                <li>
+                  Contribute to and promote primary healthcare services in the
+                  areas of Peacekeeping Operations.
+                </li>
+                <li>
+                  Carry out community diagnosis, plan, implement and evaluate
+                  community programmes towards morbidity prevention, health
+                  promotion and rehabilitation services.
+                </li>
+                <li>
+                  Plan and carry out health education that will be based on
+                  health needs of troops and the community in general.
+                </li>
+              </ol>
+            </li>
+            <li>
+              Exhibit administrative and leadership capabilities in managing
+              healthcare facilities in the various units (Medical Reception
+              Stations (MRS) and the other healthcare units within the various
+              barracks of the Ghana Armed Forces.
+            </li>
+            <li>
+              Demonstrate critical thinking and problem solving activities in
+              the provision of nursing/midwifery interventions.
+            </li>
+            <li>
+              Demonstrate responsibility and accountability for their
+              professional actions.
+            </li>
+            <li>
+              Demonstrate commitment to the nursing profession, show interest
+              and enthusiasm in the nursing/midwifery profession.
+            </li>
+            <li>
+              Show an understanding of national health policy and its relevance
+              to nursing/midwifery.
+            </li>
+            <li>
+              Demonstrate the ability of lifelong learning within a changing
+              society.
+            </li>
+          </ol>
+        </div>
+      </template>
+    </neo-fieldset-open>
+    <!-- <Fieldset class="my-10 shadow-lg"
       ><template #legend>
         <h1>Goals and Objectives of Our Programmes</h1></template
       >
@@ -127,7 +199,7 @@
           </li>
         </ol>
       </div>
-    </Fieldset>
+    </Fieldset> -->
   </div>
 </template>
 
