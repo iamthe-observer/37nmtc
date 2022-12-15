@@ -10,7 +10,7 @@ module.exports = {
         socrates: "url('@/assets/socrates.jpeg')",
       },
       spacing: {
-        'nav-h': '92px',
+        'nav-h': '141px',
       },
     },
     screens: {
@@ -393,6 +393,12 @@ module.exports = {
       Courgette: ['Courgette'],
       Sorts_Mills_Goudy: ['Sorts Mill Goudy'],
       Yeseva_One: ['Yeseva One'],
+      Aquatico: ['Aquatico'],
+      Aero: ['Aeroport'],
+      Aero_mono: ['Aeroport Mono'],
+      Cheorcy: ['Cheorcy'],
+      Cyberion: ['Cyberion Demo'],
+      Harmond: ['Harmond'],
       sans: [
         'ui-sans-serif',
         'system-ui',

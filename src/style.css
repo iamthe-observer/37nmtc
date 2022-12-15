@@ -9,7 +9,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;600;700&family=Courgette&family=Sorts+Mill+Goudy&family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-
+@import url('https://fonts.cdnfonts.com/css/aquatico');
+@import url('https://fonts.cdnfonts.com/css/aeroport-2');
+@import url('https://fonts.cdnfonts.com/css/cheorcy');
+@import url('https://fonts.cdnfonts.com/css/harmond-font-family');
 /* PRIMEVUE IMPORTS */
 @import '../node_modules/primevue/resources/primevue.min.css';
 @import '../node_modules/primevue/resources/themes/lara-light-purple/theme.css';
@@ -55,6 +58,25 @@
   .orientation-none {
     text-orientation: none;
   }
+
+  .striped-bg {
+    position: relative;
+    background: repeating-linear-gradient(
+      to bottom right,
+      #525252 15px,
+      #525252 20px,
+      #000 10px,
+      #000 25px
+    );
+  }
+
+  .dotted-bg {
+    background-image: radial-gradient(#212121 20%, transparent 20%),
+      radial-gradient(#fafafa 20%, transparent 20%);
+    background-color: gray;
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+  }
 }
 
 html,
@@ -75,29 +97,4 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-.striped-bg {
-  position: relative;
-  border-radius: 15px;
-  width: 200px;
-  height: 200px;
-  background: repeating-linear-gradient(
-    to bottom right,
-    #039be5 15px,
-    #039be5 20px,
-    #90caf9 10px,
-    #90caf9 25px
-  );
-}
-
-.dotted-bg {
-  background-image: radial-gradient(#212121 20%, transparent 20%),
-    radial-gradient(#fafafa 20%, transparent 20%);
-  background-color: gray;
-  border-radius: 15px;
-  background-position: 0 0, 10px 10px;
-  background-size: 20px 20px;
-  height: 200px;
-  width: 200px;
 }

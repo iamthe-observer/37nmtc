@@ -1,5 +1,5 @@
 <template>
-  <div :class="`z-20 w-full h-[100%] absolute overflow-hidden`">
+  <div class="z-20 w-full h-[100%] absolute overflow-hidden">
     <div class="relative w-full h-full flex flex-col">
       <div
         class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen overflow-x-hidden"

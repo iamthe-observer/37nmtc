@@ -1,7 +1,12 @@
 <template>
   <div class="flex w-full justify-between">
     <div
-      class="dropdown dropdown-end dropdown-hover transition-all duration-200 ease-out py-3 px-3"
+      ref="linker"
+      :class="
+        isVisible
+          ? 'group hover:outline hover:outline-[3px] hover:striped-bg transition-all duration-200 ease-out py-3 px-3'
+          : 'transition-all duration-200 ease-out py-3 px-3'
+      "
       :key="i"
       v-for="(link, i) in props.links"
     >
@@ -10,16 +15,16 @@
           tabindex="0"
           :class="
             isVisible
-              ? 'text-black font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
-              : 'text-white font-bold cursor-pointer px-4 py-2 hover:text-accentclr'
+              ? 'text-black group-hover:text-white font-Outfit font-bold cursor-pointer px-4 py-2'
+              : 'text-white font-Outfit font-bold cursor-pointer px-4 py-2'
           "
           >{{ link.name }}</label
         >
       </router-link>
-      <ul
+      <!-- <ul
         v-if="link.hasDropdown"
         tabindex="0"
-        class="dropdown-content menu p-1 bg-gray-50 text-black text-left font-bold text-sm rounded-md cursor-pointer w-fit mt-2"
+        class="dropdown-content menu p-1 bg-gray-50 text-black text-left font-bold text-sm rounded-md cursor-pointer w-fit mt-3"
       >
         <li
           :key="k"
@@ -29,39 +34,37 @@
         >
           <router-link :to="data.to">{{ data.text }}</router-link>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { LinkData } from '@/interfaces'
-import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/store/appStore'
-
-const {
-  about_content,
-  academics_content,
-  admission_content,
-  students_content,
-} = storeToRefs(useAppStore())
+import { onMounted, ref } from 'vue'
 
 // [ ] link should highlight when clicked on in navbar
 // [ ] add library to the links and in the menus there should be e-learning
-
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
 
-function handleCLick(link: LinkData, i: number) {
-  if (link.name === 'About Us') {
-    about_content.value = i
-  } else if (link.name === 'Academics') {
-    academics_content.value = i
-  } else if (link.name === 'Admission') {
-    admission_content.value = i
-  } else if (link.name === 'Students') {
-    students_content.value = i
-  }
-}
+const emit = defineEmits(['isHovered'])
+const linker = ref<HTMLDivElement[]>()
+
+onMounted(() => {
+  console.log(linker.value)
+  linker.value!.forEach(link => {
+    link.addEventListener('mouseover', () => {
+      let whatLink = props.links.filter(propLink => {
+        if (link.innerText.includes(propLink.name)) {
+          return propLink.name
+        }
+      })
+
+      // console.log(whatLink[0].hasDropdown)
+      emit('isHovered', whatLink[0])
+    })
+  })
+})
 </script>
 
 <style scoped></style>

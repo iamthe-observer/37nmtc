@@ -3,54 +3,123 @@
     ref="nav"
     :class="
       ifOnHome_validate
-        ? 'h-fit w-full absolute transition-all duration-200 ease-out top-0 flex flex-col bg-primaryclr items-center z-30'
+        ? 'h-fit w-full absolute transition-all duration-200 ease-out top-0 flex flex-col bg-primaryclr  border-y-[3px] border-black items-center z-30'
         : 'h-fit w-full absolute top-0 flex flex-col items-center transition-all duration-200 ease-out bg-gradient-to-b from-black to-transparent z-30'
     "
   >
-    <div class="text-white w-full flex justify-between py-1">
-      <h1
-        class="pl-6 font-bold text-2xl flex gap-2 items-center justify-center"
+    <div class="relative min-w-full">
+      <div
+        :class="
+          ifOnHome_validate
+            ? 'text-white w-full border-b-[3px] border-black flex justify-between py-1'
+            : 'text-white w-full border-none flex justify-between py-1'
+        "
       >
-        <img
-          src="@/assets/NTC_Logo.jpg"
-          alt=""
-          class="w-8 h-8 rounded-sm border-2 border-white"
-        /><span class="font-Big_Shoulders_Display">37NMTC</span>
-      </h1>
+        <h1
+          class="pl-6 py-4 font-bold text-2xl flex gap-3 items-center justify-center"
+        >
+          <img
+            src="@/assets/NTC_Logo.jpg"
+            alt=""
+            class="w-10 h-10 rounded-sm border-2 border-black"
+          /><span class="font-Cyberion text-shadow">37NMTC</span>
+        </h1>
 
-      <div class=""></div>
-    </div>
-    <div
-      :class="
-        ifOnHome_validate
-          ? 'flex items-center justify-center shadow bg-white w-full'
-          : 'flex items-center justify-center w-full'
-      "
-    >
-      <RouterLinks
-        class="text-xl text-black w-4/5 font-Big_Shoulders_Display whitespace-nowrap"
-        :links="bottom_links"
-        :isVisible="ifOnHome_validate"
-      />
+        <!-- <div class=""></div> -->
+      </div>
+      <div
+        :class="
+          ifOnHome_validate
+            ? 'flex items-center justify-center shadow bg-white w-full'
+            : 'flex items-center justify-center w-full '
+        "
+      >
+        <RouterLinks
+          @isHovered="handleEmit"
+          class="text-xl text-black w-4/5 whitespace-nowrap"
+          :links="bottom_links"
+          :isVisible="ifOnHome_validate"
+        />
+      </div>
+
+      <div
+        v-if="ifDropDown && isHovered"
+        class="w-full h-60 bg-trebleclr text-black absolute -bottom-[243px] flex flex-col items-center justify-center gap-1 border-b-[3px] border-black"
+      >
+        <div
+          class="font-Cyberion text-4xl hover-underline-animation cursor-pointer hover:scale-110 transition-all duration-300 ease-out"
+          v-for="(link, i) in current_links?.dropNames"
+          :key="i"
+          @click="handleCLick(current_links!, i)"
+        >
+          <router-link :to="link.to">{{ link.text }}</router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
+<style scoped>
+.text-shadow {
+  text-shadow: 4px 4px black;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #000;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+</style>
+
 <script setup lang="ts">
 import RouterLinks from '@/components/RouterLinks.vue'
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watchEffect } from 'vue'
 import { LinkData } from '@/interfaces'
 import { useAppStore } from '@/store/appStore'
 import { storeToRefs } from 'pinia'
 import { useIntersectionObserver } from '@vueuse/core'
+import { useElementHover } from '@vueuse/core'
 
 const nav = ref<HTMLDivElement | null>(null)
 const { target_ref } = storeToRefs(useAppStore())
 const { current_route } = storeToRefs(useAppStore())
+const current_links = ref<LinkData>()
+const ifDropDown = ref(false)
+
+const isHovered = useElementHover(nav)
 
 onMounted(() => {
   useAppStore().setElement(nav.value!, 'n')
 })
+
+watchEffect(() => {
+  console.log({ h: isHovered.value })
+})
+
+const handleEmit = (e: LinkData) => {
+  console.log(e)
+
+  ifDropDown.value = e.hasDropdown!
+  current_links.value = e!
+}
 
 const targetIsVisible = ref(false)
 
@@ -73,6 +142,25 @@ useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
     targetIsVisible.value = isIntersecting
   }
 })
+
+const {
+  about_content,
+  academics_content,
+  admission_content,
+  students_content,
+} = storeToRefs(useAppStore())
+
+function handleCLick(link: LinkData, i: number) {
+  if (link.name === 'About Us') {
+    about_content.value = i
+  } else if (link.name === 'Academics') {
+    academics_content.value = i
+  } else if (link.name === 'Admission') {
+    admission_content.value = i
+  } else if (link.name === 'Students') {
+    students_content.value = i
+  }
+}
 
 const bottom_links = ref<LinkData[]>([
   {
@@ -134,72 +222,3 @@ const bottom_links = ref<LinkData[]>([
   },
 ])
 </script>
-
-<style scoped>
-.nav_bar {
-  top: 0;
-  position: sticky;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(226, 226, 226, 0.384);
-  backdrop-filter: blur(5px);
-  padding: 20px;
-  min-width: max-content;
-}
-
-.logo {
-  width: 50px;
-  border-radius: 50px;
-}
-
-.my_name {
-  font-size: 1.2em;
-}
-
-.avatar_img {
-  width: 400px;
-  object-fit: cover;
-  border-radius: 20px;
-  aspect-ratio: 1;
-  transition: all 0.2s ease-out;
-  outline: 1px solid rgb(209, 209, 209);
-}
-
-.avatar_img:hover {
-  outline: 10px solid rgb(209, 209, 209);
-}
-
-.head_name {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav_links {
-  /* width: 100%; */
-  display: flex;
-  align-items: center;
-  list-style: none;
-  justify-content: space-evenly;
-  gap: 15px;
-}
-
-.link:hover {
-  color: rgb(189, 189, 189);
-}
-
-.link {
-  transition: all 0.2s linear;
-  text-decoration: none;
-  color: black;
-}
-
-.login_btn,
-.register_btn {
-  background: black;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 10px;
-}
-</style>
