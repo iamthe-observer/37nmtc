@@ -42,9 +42,15 @@
         />
       </div>
 
+      <!-- dropdown -->
       <div
+        v-motion-fade-once
         v-if="ifDropDown && isHovered"
-        class="w-full h-60 bg-trebleclr text-black absolute -bottom-[243px] flex flex-col items-center justify-center gap-1 border-b-[3px] border-black"
+        :class="
+          ifOnHome_validate
+            ? 'w-full h-60 bg-trebleclr text-black absolute -bottom-[243px] flex flex-col items-center justify-center gap-1 border-b-[3px] border-black group'
+            : 'w-full h-60 text-white absolute -bottom-[243px] flex flex-col items-center justify-center gap-1 border-b-[3px] border-t-[3px] border-b-[rgb(24,24,24)] border-t-[rgb(13,13,13)] backdrop-blur-lg bg-[rgba(0,0,0,.3)] group'
+        "
       >
         <div
           class="font-Cyberion text-4xl hover-underline-animation cursor-pointer hover:scale-110 transition-all duration-300 ease-out"
@@ -52,42 +58,22 @@
           :key="i"
           @click="handleCLick(current_links!, i)"
         >
-          <router-link :to="link.to">{{ link.text }}</router-link>
+          <router-link
+            :class="
+              ifOnHome_validate
+                ? 'text-black hover:text-white hover:font-outline-2'
+                : 'text-white hover:text-trebleclr'
+            "
+            :to="link.to"
+            >{{ link.text }}</router-link
+          >
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.text-shadow {
-  text-shadow: 4px 4px black;
-}
-
-.hover-underline-animation {
-  display: inline-block;
-  position: relative;
-  color: #000;
-}
-
-.hover-underline-animation:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.hover-underline-animation:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-</style>
+<style></style>
 
 <script setup lang="ts">
 import RouterLinks from '@/components/RouterLinks.vue'

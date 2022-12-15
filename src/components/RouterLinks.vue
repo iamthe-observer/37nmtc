@@ -16,7 +16,7 @@
           :class="
             isVisible
               ? 'text-black group-hover:text-white font-Outfit font-bold cursor-pointer px-4 py-2'
-              : 'text-white font-Outfit font-bold cursor-pointer px-4 py-2'
+              : 'text-white hover:text-gray-100 font-Outfit font-bold cursor-pointer px-4 py-2'
           "
           >{{ link.name }}</label
         >

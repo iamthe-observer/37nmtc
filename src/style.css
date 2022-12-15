@@ -31,6 +31,54 @@
   transition: opacity 200ms ease-out;
 }
 
+@layer base {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px black;
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
+  }
+
+  .text-shadow {
+    text-shadow: 4px 4px black;
+  }
+
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .box-box {
+    box-shadow: 12px 12px 0px 0px #000;
+    -webkit-box-shadow: 12px 12px 0px 0px #000;
+    -moz-box-shadow: 12px 12px 0px 0px #000;
+  }
+
+  .box-box-sec {
+    box-shadow: -12px 12px 0px 0px #110d3d;
+    -webkit-box-shadow: -12px 12px 0px 0px #110d3d;
+    -moz-box-shadow: -12px 12px 0px 0px #110d3d;
+  }
+}
+
 @layer utilities {
   .neu-box {
     transform: all 300ms ease-out;
@@ -87,7 +135,8 @@ body,
 }
 
 #app {
-  font-family: Sorts Mill Goudy;
+  @apply font-bold;
+  font-family: Outfit;
   text-align: center;
 }
 
@@ -97,4 +146,8 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.border-me {
+  border: 3px solid black;
 }

@@ -1,102 +1,139 @@
 <template>
   <div class="bg-backgrdclr">
     <div
-      class="bg-secondaryclr w-full min-h-full rounded-tr-3xl px-5 py-4 flex gap-8 rounded-tl-3xl"
+      class="bg-primaryclr w-full min-h-full border-t-[3px] border-black px-5 py-4 flex gap-8"
     >
       <div
-        class="bg-black w-[30%] text-white p-8 rounded-lg m-3 box-box flex items-center flex-col font-Outfit"
+        class="bg-white w-[30%] text-black p-8 border-[3px] border-black m-3 box-box flex items-center flex-col font-Outfit"
       >
         <!-- newsletters -->
-        <h2 class="font-Bebas_Neue text-3xl mb-3">
+        <h2 class="font-Cyberion font-black uppercase text-2xl mb-3">
           Subscribe to our newsletters
         </h2>
         <input
-          class="bg-black text-white text-center rounded-lg mb-3 hover:outline-none transition-all py-1 duration-500 ease-out hover:bg-[#363636] outline outline-2 outline-white"
+          class="bg-black text-white text-center mb-3 hover:outline-none transition-all py-1 duration-500 ease-out hover:bg-[#363636] outline outline-2 outline-white font-Aero"
           type="email"
           name="email"
           placeholder="Enter email"
         />
 
-        <button
+        <!-- <button
           class="btn bg-black rounded-lg text-xl tracking-wide font-Outfit gap-2 border-white border-2"
         >
           Subscribe
           <i class="pi pi-send"></i>
-        </button>
+        </button> -->
+
+        <neo-button :label="'Subscribe'" />
 
         <n-divider dashed />
 
         <!-- feedback -->
-        <h2 class="font-Bebas_Neue text-3xl mb-3">Feedback</h2>
+        <h2 class="font-Cyberion font-black uppercase text-2xl mb-3">
+          Feedback
+        </h2>
         <textarea
-          class="bg-black text-white text-center rounded-lg mb-3 hover:outline-none transition-all py-1 duration-500 ease-out hover:bg-[#363636] outline outline-2 outline-white"
+          class="bg-black text-white text-center mb-3 hover:outline-none transition-all py-1 duration-500 ease-out hover:bg-[#363636] outline outline-2 outline-white"
           type="text"
           name="feedback"
           placeholder="Give us your feedback"
         ></textarea>
 
-        <button
-          class="btn bg-black rounded-lg text-xl tracking-wide font-Outfit gap-2 border-white border-2"
-        >
-          Send
-          <i class="pi pi-send"></i>
-        </button>
+        <neo-button
+          :label="'Send'"
+          :icon="'pi pi-send text-bold pr-2'"
+        ></neo-button>
       </div>
 
       <!-- other info -->
       <div
-        class="flex-1 bg-black text-white p-8 rounded-lg m-3 box-box flex items-start justify-between gap-3 font-Outfit"
+        class="flex-1 bg-white text-black p-8 border-[3px] border-black m-3 box-box flex items-start justify-between gap-3 font-Outfit"
       >
         <!-- links -->
         <div ref="links1" class="flex flex-col w-[40%]">
           <h2
-            class="w-fit font-Big_Shoulders_Display text-[1.2em] font-bold text-primaryclr"
+            class="w-fit font-Cyberion font-black text-[1.em] text-primaryclr"
           >
             The University
           </h2>
-          <div class="flex flex-col items-start text-lg">
-            <router-link to="" class="">About Us</router-link>
-            <router-link to="" class="">Management & Staff</router-link>
-            <router-link to="" class="">Faculty Members</router-link>
-            <router-link to="" class="">Programmes & Courses</router-link>
-            <router-link to="" class="">Academic Policies</router-link>
-            <router-link to="" class="">Admission Processes</router-link>
-            <router-link to="" class="">Admission Requirements</router-link>
-            <router-link to="" class="">Campus Life</router-link>
-            <router-link to="" class="">Staff Portal</router-link>
-            <router-link to="" class="">Student Information Portal</router-link>
-            <router-link to="" class="">Contact Us</router-link>
+          <div class="flex flex-col items-start text-xl font-Bebas_Neue">
+            <router-link to="" class="hover-underline-animation"
+              >About Us</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Management & Staff</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Faculty Members</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Programmes & Courses</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Academic Policies</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Admission Processes</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Admission Requirements</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Campus Life</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Staff Portal</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Student Information Portal</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >Contact Us</router-link
+            >
           </div>
         </div>
 
         <!-- affiliations and Business Relationships -->
-        <div ref="links2" class="flex flex-col w-[40%] flex-1">
+        <div
+          ref="links2"
+          class="flex flex-col w-[40%] flex-1 text-xl font-Bebas_Neue"
+        >
           <h2
-            class="w-fit font-Big_Shoulders_Display text-[1.2em] font-bold text-primaryclr"
+            class="w-fit text-[1.em] text-left font-Cyberion font-black text-primaryclr"
           >
             Affiliations and Business Relationships
           </h2>
-          <div class="flex flex-col items-start text-lg">
-            <router-link to="" class="">University of Cape Coast</router-link>
-            <router-link to="" class=""
+          <div class="flex flex-col items-start text-xl">
+            <router-link to="" class="hover-underline-animation"
+              >University of Cape Coast</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
               >Kwame Nkrumah University [KNUST]</router-link
             >
-            <router-link to="" class=""
+            <router-link to="" class="hover-underline-animation"
               >Health Training Institutions</router-link
             >
-            <router-link to="" class="">37 Military Hospital</router-link>
-            <router-link to="" class=""
+            <router-link to="" class="hover-underline-animation"
+              >37 Military Hospital</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
               >Ghana Armed Forces Medical Service</router-link
             >
-            <router-link to="" class="">Ministry of Health </router-link>
-            <router-link to="" class=""
+            <router-link to="" class="hover-underline-animation"
+              >Ministry of Health
+            </router-link>
+            <router-link to="" class="hover-underline-animation"
               >Nursing & Midwifery Council of Ghana</router-link
             >
-            <router-link to="" class=""
+            <router-link to="" class="hover-underline-animation"
               >School of Nursing ( University of Ghana)</router-link
             >
-            <router-link to="" class="">Korle-Bu Teaching Hospital</router-link>
-            <router-link to="" class="">JHPIEGO Ghana</router-link>
+            <router-link to="" class="hover-underline-animation"
+              >Korle-Bu Teaching Hospital</router-link
+            >
+            <router-link to="" class="hover-underline-animation"
+              >JHPIEGO Ghana</router-link
+            >
           </div>
         </div>
       </div>
@@ -118,6 +155,7 @@
 <script setup lang="ts">
 import { NDivider } from 'naive-ui'
 import { onMounted, ref } from 'vue'
+import NeoButton from '@/components/NeoButton.vue'
 
 const links1 = ref<HTMLDivElement>()
 const links2 = ref<HTMLDivElement>()
@@ -138,17 +176,3 @@ onMounted(() => {
   // console.log(lk1, lk2)
 })
 </script>
-
-<style>
-.box-box {
-  box-shadow: -12px 12px 0px 0px #85081d;
-  -webkit-box-shadow: -12px 12px 0px 0px #85081d;
-  -moz-box-shadow: -12px 12px 0px 0px #85081d;
-}
-
-.box-box-sec {
-  box-shadow: -12px 12px 0px 0px #110d3d;
-  -webkit-box-shadow: -12px 12px 0px 0px #110d3d;
-  -moz-box-shadow: -12px 12px 0px 0px #110d3d;
-}
-</style>

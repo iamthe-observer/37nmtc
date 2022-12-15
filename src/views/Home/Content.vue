@@ -4,12 +4,12 @@
   >
     <div class="" ref="target">
       <div
-        class="[margin-top:100vh] rounded-tr-3xl rounded-tl-3xl px-6 py-3 bg-backgrdclr flex flex-col items-center"
+        class="[margin-top:100vh] border-t-[3px] border-black px-6 py-3 bg-backgrdclr flex flex-col items-center"
       >
         <!-- home welcome heading -->
         <h1
           v-motion-slide-visible-once-bottom
-          class="text-[3em] mt-14 mb-28 font-Bebas_Neue"
+          class="text-[3em] mt-14 mb-28 font-Cyberion leading-[1em] text-shadow text-primaryclr"
         >
           Welcome to 37 Nursing and Training College
         </h1>
@@ -28,17 +28,17 @@
           <div v-motion-slide-visible-once-left class="w-full flex p-4">
             <div
               v-motion-fade-visible-once
-              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Cheorcy"
             >
               {{ init_info[0].title }}
             </div>
             <div
-              class="relative flex-1 p-[2rem] bg-gradient-to-l from-transP to-transsP rounded-md shadow-2xl"
+              class="relative flex-1 p-[2rem] bg-gradient-to-l from-transP to-transsP border-me box-box"
             >
               {{ init_info[0].body }}
               <button
                 data-tip="Read More"
-                class="tooltip tooltip-right font-Outfit btn absolute -bottom-5 -left-5 bg-primaryclr border-none"
+                class="tooltip tooltip-right font-Outfit absolute bottom-1 left-1 bg-primaryclr border-me p-2"
               >
                 <i class="pi pi-arrow-right text-white"></i>
               </button>
@@ -47,13 +47,13 @@
 
           <div v-motion-slide-visible-once-left class="w-full flex p-4">
             <div
-              class="flex-1 card-body bg-gradient-to-r from-transS to-transsS rounded-md shadow-2xl"
+              class="flex-1 card-body bg-gradient-to-r from-transS to-transsS border-me box-box"
             >
               {{ init_info[1].body }}
             </div>
             <div
               v-motion-fade-visible-once
-              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Cheorcy"
             >
               {{ init_info[1].title }}
             </div>
@@ -62,12 +62,12 @@
           <div v-motion-slide-visible-once-left class="w-full flex p-4">
             <div
               v-motion-fade-visible-once
-              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Yeseva_One"
+              class="w-2/5 flex gap-2 text-3xl items-center justify-center font-Cheorcy"
             >
               {{ init_info[2].title }}
             </div>
             <div
-              class="flex-1 card-body bg-gradient-to-l from-transT to-transsT rounded-md shadow-2xl"
+              class="flex-1 card-body bg-gradient-to-l from-transT to-transsT border-me box-box"
             >
               {{ init_info[2].body }}
             </div>
@@ -80,7 +80,7 @@
         <!-- Our Programmes -->
         <h3
           v-motion-slide-visible-once-bottom
-          class="font-Bebas_Neue mt-8 mb-6 text-[2em]"
+          class="font-Cheorcy mt-8 mb-6 text-[2em]"
         >
           Our Programmes
         </h3>
@@ -90,13 +90,14 @@
         >
           <div
             v-for="(data, i) in program_info"
-            class="card w-96 bg-base-100 shadow-xl rounded-lg"
+            :key="i"
+            class="card w-96 bg- shadow-xl rounded-none hover:box-box hover:translate-y-[-10px] hover:bg-secondaryclr transition-all duration-300 ease-out hover:text-white"
           >
             <figure>
               <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
             </figure>
             <div class="card-body">
-              <h2 class="card-title mx-auto font-Yeseva_One">
+              <h2 class="card-title mx-auto font-Bebas_Neue text-2xl">
                 {{ data.title }}
               </h2>
               <p>{{ data.body }}</p>
