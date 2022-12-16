@@ -96,13 +96,7 @@ onMounted(() => {
   useAppStore().setElement(nav.value!, 'n')
 })
 
-watchEffect(() => {
-  console.log({ h: isHovered.value })
-})
-
 const handleEmit = (e: LinkData) => {
-  console.log(e)
-
   ifDropDown.value = e.hasDropdown!
   current_links.value = e!
 }

@@ -1,8 +1,9 @@
 <template>
   <div
+    ref="neo_fieldset"
     class="collapse collapse-arrow w-full text-left border-[3px] border-black boxer"
   >
-    <input type="checkbox" class="peer" />
+    <input type="checkbox" class="peer" :checked="onHovered" />
     <div
       class="collapse-title bg-secondaryclr text-white peer-checked:bg-black peer-checked:striped-bg peer-checked:text-white peer-checked:border-b-[3px] peer-checked:border-black text-left"
     >
@@ -11,7 +12,7 @@
           'text-3xl font-Cyberion peer-checked:text-shadow' + ' ' + legend_class
         "
       >
-        <slot name="legend">Header</slot></span
+        <slot name="legend">Header {{ onHovered }}</slot></span
       >
     </div>
     <div
@@ -27,6 +28,19 @@
 </template>
 
 <script setup lang="ts">
+import { useElementHover } from '@vueuse/core'
+import { ref, watchEffect } from 'vue'
+
+const neo_fieldset = ref()
+const isHovered = useElementHover(neo_fieldset)
+const onHovered = ref(false)
+
+watchEffect(() => {
+  if (isHovered.value == true) {
+    onHovered.value = true
+  }
+})
+
 const props = defineProps<{
   legend_class?: string
   content_class?: string

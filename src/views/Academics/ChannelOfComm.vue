@@ -7,7 +7,9 @@
 
     <div class="flex-col flex gap-16">
       <p
-        class="hover:conta box-box hover:-translate-y-1 hover:dotted-bg hover:text-white transition-all duration-300 ease-out px-8 py-5 border-[3px] border-black bg-white"
+        :style="classer"
+        ref="container"
+        class="paragraph hover:conta box-box hover:-translate-y-1 hover:dotted-bg hover:text-white transition-all duration-300 ease-out px-8 py-5 border-[3px] border-black bg-white"
       >
         All students are expected to use the official channels of communication
         available in the college. Each year group has 2 senior prefects. They
@@ -67,4 +69,32 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed, onMounted, ref, watchEffect } from 'vue'
+import { useParallax, useElementHover } from '@vueuse/core'
+
+const container = ref<HTMLParagraphElement>()
+const classer = ref<{}>('')
+const { tilt, roll, source } = useParallax(container)
+const isHovered = useElementHover(container)
+
+const cardParallax = computed(() => ({
+  transform: `rotateX(${roll.value * 20}deg) rotateY(${tilt.value * 20}deg)`,
+}))
+
+watchEffect(() => {
+  if (isHovered.value) {
+    classer.value = cardParallax.value
+  } else {
+    classer.value = {
+      transform: `rotateX(${0 * 20}deg) rotateY(${0 * 20}deg)`,
+    }
+  }
+})
+</script>
+
+<!-- <style scoped>
+.paragraph {
+  transform: v-bind(cardParallax.transform)
+}
+</style> -->

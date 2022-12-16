@@ -51,7 +51,6 @@ const emit = defineEmits(['isHovered'])
 const linker = ref<HTMLDivElement[]>()
 
 onMounted(() => {
-  console.log(linker.value)
   linker.value!.forEach(link => {
     link.addEventListener('mouseover', () => {
       let whatLink = props.links.filter(propLink => {
@@ -59,8 +58,6 @@ onMounted(() => {
           return propLink.name
         }
       })
-
-      // console.log(whatLink[0].hasDropdown)
       emit('isHovered', whatLink[0])
     })
   })

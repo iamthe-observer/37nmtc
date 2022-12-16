@@ -33,6 +33,8 @@
               {{ init_info[0].title }}
             </div>
             <div
+              ref="history"
+              :style="hclass"
               class="relative flex-1 p-[2rem] bg-gradient-to-l from-transP to-transsP border-me box-box"
             >
               {{ init_info[0].body }}
@@ -47,6 +49,8 @@
 
           <div v-motion-slide-visible-once-left class="w-full flex p-4">
             <div
+              ref="vision"
+              :style="vclass"
               class="flex-1 card-body bg-gradient-to-r from-transS to-transsS border-me box-box"
             >
               {{ init_info[1].body }}
@@ -67,6 +71,8 @@
               {{ init_info[2].title }}
             </div>
             <div
+              ref="mission"
+              :style="mclass"
               class="flex-1 card-body bg-gradient-to-l from-transT to-transsT border-me box-box"
             >
               {{ init_info[2].body }}
@@ -80,7 +86,7 @@
         <!-- Our Programmes -->
         <h3
           v-motion-slide-visible-once-bottom
-          class="font-Cheorcy mt-8 mb-6 text-[2em]"
+          class="font-Cheorcy mt-20 text-[2em] mb-16"
         >
           Our Programmes
         </h3>
@@ -175,9 +181,68 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { useElementHover, useParallax } from '@vueuse/core'
+import { onMounted, ref, reactive, watchEffect, computed } from 'vue'
 import { useAppStore } from '@/store/appStore'
 import CardWithImage from '@/components/CardWithImage.vue'
+
+// [ ] make a composable for this
+const history = ref<HTMLDivElement>()
+const vision = ref<HTMLDivElement>()
+const mission = ref<HTMLDivElement>()
+const Phist = useParallax(history)
+const Pvisi = useParallax(vision)
+const Pmiss = useParallax(mission)
+const Hhist = useElementHover(history)
+const Hvisi = useElementHover(vision)
+const Hmiss = useElementHover(mission)
+const hclass = ref()
+const vclass = ref()
+const mclass = ref()
+
+// const HistoryCardParallax = computed(() => ({
+//   transform: `rotateX(${Phist.roll.value * 15}deg) rotateY(${
+//     Phist.tilt.value * 15
+//   }deg)`,
+// }))
+// const VisionCardParallax = computed(() => ({
+//   transform: `rotateX(${Pvisi.roll.value * 15}deg) rotateY(${
+//     Pvisi.tilt.value * 15
+//   }deg)`,
+// }))
+// const MissionCardParallax = computed(() => ({
+//   transform: `rotateX(${Pmiss.roll.value * 15}deg) rotateY(${
+//     Pmiss.tilt.value * 15
+//   }deg)`,
+// }))
+
+// watchEffect(() => {
+//   if (Hhist.value) {
+//     hclass.value = HistoryCardParallax.value
+//   } else {
+//     hclass.value = {
+//       transform: `rotateX(${0 * 20}deg) rotateY(${0 * 20}deg)`,
+//     }
+//   }
+// })
+// watchEffect(() => {
+//   if (Hvisi.value) {
+//     vclass.value = VisionCardParallax.value
+//   } else {
+//     vclass.value = {
+//       transform: `rotateX(${0 * 20}deg) rotateY(${0 * 20}deg)`,
+//     }
+//   }
+// })
+// watchEffect(() => {
+//   if (Hmiss.value) {
+//     mclass.value = MissionCardParallax.value
+//   } else {
+//     mclass.value = {
+//       transform: `rotateX(${0 * 20}deg) rotateY(${0 * 20}deg)`,
+//     }
+//   }
+// })
 
 const target = ref<HTMLDivElement>()
 const cardClass = ref<string>()
