@@ -3,8 +3,8 @@
     ref="nav"
     :class="
       ifOnHome_validate
-        ? 'h-fit w-full absolute transition-all duration-200 ease-out top-0 flex flex-col bg-primaryclr  border-y-[3px] border-black items-center z-30'
-        : 'h-fit w-full absolute top-0 flex flex-col items-center transition-all duration-200 ease-out bg-gradient-to-b from-black to-transparent z-30'
+        ? 'h-fit w-full sticky transition-all duration-200 ease-out top-0 flex flex-col bg-primaryclr  border-y-[3px] border-black items-center z-30'
+        : 'h-fit w-full sticky top-0 flex flex-col items-center transition-all duration-200 ease-out bg-gradient-to-b from-black to-transparent z-30'
     "
   >
     <div class="relative min-w-full">
@@ -15,18 +15,21 @@
             : 'text-white w-full border-none flex justify-between py-1'
         "
       >
-        <h1
-          class="pl-6 py-4 font-bold text-2xl flex gap-3 items-center justify-center"
-        >
-          <img
-            src="@/assets/NTC_Logo.jpg"
-            alt=""
-            class="w-10 h-10 rounded-sm border-2 border-black"
-          /><span class="font-Cyberion text-shadow">37NMTC</span>
-        </h1>
+        <router-link to="/">
+          <h1
+            class="pl-6 py-4 font-bold text-2xl flex gap-3 items-center justify-center"
+          >
+            <img
+              src="@/assets/NTC_Logo.jpg"
+              alt=""
+              class="w-10 h-10 rounded-sm border-2 border-black"
+            /><span class="font-Cyberion text-shadow">37NMTC</span>
+          </h1>
+        </router-link>
 
         <!-- <div class=""></div> -->
       </div>
+
       <div
         :class="
           ifOnHome_validate
@@ -44,7 +47,7 @@
 
       <!-- dropdown -->
       <div
-        v-motion-fade-once
+        v-motion-fade
         v-if="ifDropDown && isHovered"
         :class="
           ifOnHome_validate
@@ -59,6 +62,7 @@
           @click="handleCLick(current_links!, i)"
         >
           <router-link
+            @click="loading = true"
             :class="
               ifOnHome_validate
                 ? 'text-black hover:text-white hover:font-outline-2'
@@ -84,24 +88,24 @@ import { storeToRefs } from 'pinia'
 import { useIntersectionObserver } from '@vueuse/core'
 import { useElementHover } from '@vueuse/core'
 
+const { loading } = storeToRefs(useAppStore())
+
 const nav = ref<HTMLDivElement | null>(null)
-const { target_ref } = storeToRefs(useAppStore())
+const { target_ref, targetIsVisible } = storeToRefs(useAppStore())
 const { current_route } = storeToRefs(useAppStore())
 const current_links = ref<LinkData>()
 const ifDropDown = ref(false)
 
 const isHovered = useElementHover(nav)
 
-onMounted(() => {
-  useAppStore().setElement(nav.value!, 'n')
-})
+// onMounted(() => {
+//   useAppStore().setElement(nav.value!, 'n')
+// })
 
 const handleEmit = (e: LinkData) => {
   ifDropDown.value = e.hasDropdown!
   current_links.value = e!
 }
-
-const targetIsVisible = ref(false)
 
 const ifOnHome_validate = computed(() => {
   if (targetIsVisible.value && current_route.value === 'home') {
@@ -113,15 +117,15 @@ const ifOnHome_validate = computed(() => {
   }
 })
 
-useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
-  if (isIntersecting) {
-    setTimeout(() => {
-      targetIsVisible.value = isIntersecting
-    }, 500)
-  } else {
-    targetIsVisible.value = isIntersecting
-  }
-})
+// useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
+//   if (isIntersecting) {
+//     setTimeout(() => {
+//       targetIsVisible.value = isIntersecting
+//     }, 200)
+//   } else {
+//     targetIsVisible.value = isIntersecting
+//   }
+// })
 
 const {
   about_content,

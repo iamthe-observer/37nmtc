@@ -1,32 +1,29 @@
-`
 <template>
-  <div :class="`z-20 w-full h-[100%] absolute overflow-hidden`">
-    <div class="relative w-full h-full flex flex-col">
-      <div
-        class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen overflow-x-hidden"
-      >
-        <div
-          class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex gap-8"
+  <div
+    ref="parent"
+    class="overflow-y-scroll text-xl text-black overflow-x-hidden w-full h-full"
+  >
+    <NavBar />
+    <div class="min-h-fit w-full p-3 pb-12 bg-backgrdclr flex gap-8">
+      <!-- sidebar -->
+      <div class="text-sm">
+        <SideMenu
+          @title="changeContent"
+          :model="about_items"
+          :parent-node="parent"
         >
-          <!-- sidebar -->
-          <div class="text-sm">
-            <SideMenu @title="changeContent" :model="about_items">
-              <template #head>
-                <i class="pi pi-compass"></i> About 37NMTC</template
-              >
-            </SideMenu>
-          </div>
-
-          <!-- content -->
-          <ComponentSwitcher
-            :content="about_content!"
-            :items="about_items"
-            :components="about_components"
-          />
-        </div>
-        <Footer />
+          <template #head> <i class="pi pi-compass"></i> About 37NMTC</template>
+        </SideMenu>
       </div>
+
+      <!-- content -->
+      <ComponentSwitcher
+        :content="about_content!"
+        :items="about_items"
+        :components="about_components"
+      />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -50,6 +47,7 @@ onMounted(() => {
 })
 
 const { about_content } = storeToRefs(useAppStore())
+const parent = ref()
 
 function changeContent(num: number) {
   about_content.value = num

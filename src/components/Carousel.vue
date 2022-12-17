@@ -1,21 +1,8 @@
 <template>
-  <n-carousel class="flex-1" autoplay draggable :effect="`fade`">
-    <img
-      class="carousel-img"
-      src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel1.jpeg"
-    />
-    <img
-      class="carousel-img"
-      src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel2.jpeg"
-    />
-    <img
-      class="carousel-img"
-      src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel3.jpeg"
-    />
-    <img
-      class="carousel-img"
-      src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel4.jpeg"
-    />
+  <n-carousel class="flex-1 -z-10" autoplay :effect="`fade`">
+    <img class="carousel-img" src="@/assets/images/bg1.jpg" />
+    <img class="carousel-img" src="@/assets/images/bsc1.jpg" />
+    <img class="carousel-img" src="@/assets/images/rgn1.jpg" />
   </n-carousel>
 </template>
 

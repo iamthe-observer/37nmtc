@@ -1,32 +1,31 @@
-`
 <template>
-  <div :class="`z-20 w-full h-[100%] absolute overflow-hidden`">
-    <div class="relative w-full h-full flex flex-col">
-      <div
-        class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen overflow-x-hidden"
-      >
-        <div
-          class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex gap-8"
+  <div
+    ref="parent"
+    class="overflow-y-scroll text-xl text-black overflow-x-hidden w-full h-full"
+  >
+    <nav-bar />
+    <div class="min-h-fit w-full p-3 pb-12 bg-backgrdclr flex gap-8">
+      <!-- sidebar -->
+      <div class="text-sm">
+        <SideMenu
+          @title="changeContent"
+          :model="academics_items"
+          :parent-node="parent"
         >
-          <!-- sidebar -->
-          <div class="text-sm">
-            <SideMenu @title="changeContent" :model="academics_items">
-              <template #head>
-                <i class="pi pi-book font-bold"></i> Academics</template
-              >
-            </SideMenu>
-          </div>
-
-          <!-- content -->
-          <ComponentSwitcher
-            :content="academics_content!"
-            :items="academics_items"
-            :components="academics_components"
-          />
-        </div>
-        <Footer />
+          <template #head>
+            <i class="pi pi-book font-bold"></i> Academics</template
+          >
+        </SideMenu>
       </div>
+
+      <!-- content -->
+      <ComponentSwitcher
+        :content="academics_content!"
+        :items="academics_items"
+        :components="academics_components"
+      />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -49,6 +48,7 @@ onMounted(() => {
 })
 
 const { academics_content } = storeToRefs(useAppStore())
+const parent = ref()
 
 function changeContent(num: number) {
   academics_content.value = num
@@ -82,4 +82,3 @@ const academics_items = ref<MenuItem[]>([
   },
 ])
 </script>
-`

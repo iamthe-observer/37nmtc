@@ -1,17 +1,12 @@
 <template>
-  <div class="z-20 w-full h-[100%] absolute overflow-hidden">
-    <div class="relative w-full h-full flex flex-col">
-      <div
-        class="overflow-y-scroll absolute inset-0 text-xl text-black w-full h-screen overflow-x-hidden"
-      >
-        <div
-          class="mt-nav-h min-h-full w-full p-3 pb-12 bg-backgrdclr flex gap-8"
-        >
-          <Content />
-        </div>
-        <Footer />
-      </div>
+  <div
+    class="overflow-y-scroll text-xl text-black overflow-x-hidden w-full h-full"
+  >
+    <NavBar />
+    <div class="min-h-fit w-full p-3 pb-12 bg-backgrdclr flex gap-8">
+      <Content />
     </div>
+    <Footer />
   </div>
 </template>
 

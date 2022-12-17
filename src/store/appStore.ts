@@ -1,6 +1,6 @@
 import { useElementSize, useIntersectionObserver } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { useRoute } from 'vue-router'
 
@@ -11,6 +11,18 @@ export const useAppStore = defineStore('app', () => {
   const academics_content = ref<number>(0)
   const admission_content = ref<number>(0)
   const students_content = ref<number>(0)
+  const loading = ref(true)
+
+  const targetIsVisible = ref(false)
+  useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
+    if (isIntersecting) {
+      setTimeout(() => {
+        targetIsVisible.value = isIntersecting
+      }, 200)
+    } else {
+      targetIsVisible.value = isIntersecting
+    }
+  })
 
   const route = useRoute()
   const current_route = computed(() => {
@@ -34,6 +46,7 @@ export const useAppStore = defineStore('app', () => {
 
   return {
     target_ref,
+    targetIsVisible,
     nav_ref,
     current_route,
     about_content,
@@ -42,5 +55,6 @@ export const useAppStore = defineStore('app', () => {
     setElement,
     diff_content_nav,
     students_content,
+    loading,
   }
 })

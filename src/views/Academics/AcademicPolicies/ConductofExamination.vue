@@ -7,6 +7,7 @@
     >
 
     <!-- [ ] text must be spaced appropriately -->
+    <!-- [ ] fade out 37nmtc in the carousel when you scroll-->
 
     <template #content>
       <div class="text-left">

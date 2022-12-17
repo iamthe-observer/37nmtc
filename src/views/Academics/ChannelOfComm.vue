@@ -70,11 +70,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useParallax, useElementHover } from '@vueuse/core'
 
 const container = ref<HTMLParagraphElement>()
-const classer = ref<{}>('')
+const classer = ref<{}>()
 const { tilt, roll, source } = useParallax(container)
 const isHovered = useElementHover(container)
 

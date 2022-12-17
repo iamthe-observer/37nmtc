@@ -1,1139 +1,267 @@
 <template>
-  <div class="container">
-    <div class="h1Container">
-      <div class="cube h1 w1 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
+  <div
+    v-motion-fade
+    class="flex flex-col dotted-bg w-full min-h-full justify-center items-center gap-3"
+  >
+    <div class="">
+      <div class="loader">
+        <svg viewBox="0 0 80 80">
+          <circle id="test" cx="40" cy="40" r="32"></circle>
+        </svg>
       </div>
 
-      <div class="cube h1 w1 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
+      <div class="loader triangle">
+        <svg viewBox="0 0 86 80">
+          <polygon points="43 8 79 72 7 72"></polygon>
+        </svg>
       </div>
 
-      <div class="cube h1 w1 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h1 w2 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h1 w2 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h1 w2 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h1 w3 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h1 w3 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h1 w3 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
+      <div class="loader">
+        <svg viewBox="0 0 80 80">
+          <rect x="8" y="8" width="64" height="64"></rect>
+        </svg>
       </div>
     </div>
-
-    <div class="h2Container">
-      <div class="cube h2 w1 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w1 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w1 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w2 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w2 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w2 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w3 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w3 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h2 w3 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-    </div>
-
-    <div class="h3Container">
-      <div class="cube h3 w1 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w1 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w1 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w2 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w2 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w2 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w3 l1">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w3 l2">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
-
-      <div class="cube h3 w3 l3">
-        <div class="face top"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
-      </div>
+    <div class="font-Bebas_Neue text-white text-3xl tracking-wider">
+      Loading
     </div>
   </div>
 </template>
 
 <style scoped>
+.loader {
+  --path: #ffffff;
+  --dot: #7520c4;
+  --duration: 3s;
+  width: 44px;
+  height: 44px;
+  position: relative;
+}
+.loader:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  display: block;
+  background: var(--dot);
+  top: 37px;
+  left: 19px;
+  transform: translate(-18px, -18px);
+  -webkit-animation: dotRect var(--duration)
+    cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+    infinite;
+}
+.loader svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.loader svg rect,
+.loader svg polygon,
+.loader svg circle {
+  fill: none;
+  stroke: var(--path);
+  stroke-width: 10px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.loader svg polygon {
+  stroke-dasharray: 145 76 145 76;
+  stroke-dashoffset: 0;
+  -webkit-animation: pathTriangle var(--duration)
+    cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+    infinite;
+}
+.loader svg rect {
+  stroke-dasharray: 192 64 192 64;
+  stroke-dashoffset: 0;
+  -webkit-animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+.loader svg circle {
+  stroke-dasharray: 150 50 150 50;
+  stroke-dashoffset: 75;
+  -webkit-animation: pathCircle var(--duration)
+    cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+    infinite;
+}
+.loader.triangle {
+  width: 48px;
+}
+.loader.triangle:before {
+  left: 21px;
+  transform: translate(-10px, -18px);
+  -webkit-animation: dotTriangle var(--duration)
+    cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+    infinite;
+}
+
+@-webkit-keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
+  }
+  66% {
+    stroke-dashoffset: 147;
+  }
+  100% {
+    stroke-dashoffset: 221;
+  }
+}
+
+@keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
+  }
+  66% {
+    stroke-dashoffset: 147;
+  }
+  100% {
+    stroke-dashoffset: 221;
+  }
+}
+@-webkit-keyframes dotTriangle {
+  33% {
+    transform: translate(0, 0);
+  }
+  66% {
+    transform: translate(10px, -18px);
+  }
+  100% {
+    transform: translate(-10px, -18px);
+  }
+}
+@keyframes dotTriangle {
+  33% {
+    transform: translate(0, 0);
+  }
+  66% {
+    transform: translate(10px, -18px);
+  }
+  100% {
+    transform: translate(-10px, -18px);
+  }
+}
+@-webkit-keyframes pathRect {
+  25% {
+    stroke-dashoffset: 64;
+  }
+  50% {
+    stroke-dashoffset: 128;
+  }
+  75% {
+    stroke-dashoffset: 192;
+  }
+  100% {
+    stroke-dashoffset: 256;
+  }
+}
+@keyframes pathRect {
+  25% {
+    stroke-dashoffset: 64;
+  }
+  50% {
+    stroke-dashoffset: 128;
+  }
+  75% {
+    stroke-dashoffset: 192;
+  }
+  100% {
+    stroke-dashoffset: 256;
+  }
+}
+@-webkit-keyframes dotRect {
+  25% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(18px, -18px);
+  }
+  75% {
+    transform: translate(0, -36px);
+  }
+  100% {
+    transform: translate(-18px, -18px);
+  }
+}
+@keyframes dotRect {
+  25% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(18px, -18px);
+  }
+  75% {
+    transform: translate(0, -36px);
+  }
+  100% {
+    transform: translate(-18px, -18px);
+  }
+}
+@-webkit-keyframes pathCircle {
+  25% {
+    stroke-dashoffset: 125;
+  }
+  50% {
+    stroke-dashoffset: 175;
+  }
+  75% {
+    stroke-dashoffset: 225;
+  }
+  100% {
+    stroke-dashoffset: 275;
+  }
+}
+@keyframes pathCircle {
+  25% {
+    stroke-dashoffset: 125;
+  }
+  50% {
+    stroke-dashoffset: 175;
+  }
+  75% {
+    stroke-dashoffset: 225;
+  }
+  100% {
+    stroke-dashoffset: 275;
+  }
+}
+.loader {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
+  min-height: 100vh;
+  background: #f5f9ff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  background: #222;
 }
-
-.container {
-  position: relative;
-  height: 100px;
-  width: 86px;
-  transform: scale(0.5);
+body .dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
 }
-
-.cube {
-  position: absolute;
-  width: 86px;
-  height: 100px;
-}
-
-.right {
-  background: #e79c10;
-  transform: rotate(-30deg) skewX(-30deg) translate(49px, 65px) scaleY(0.86);
-}
-
-.left {
-  background: #d53a33;
-  transform: rotate(90deg) skewX(-30deg) scaleY(0.86) translate(25px, -50px);
-}
-
-.top {
-  background: #1d9099;
-  transform: rotate(210deg) skew(-30deg) translate(-75px, -22px) scaleY(0.86);
-  z-index: 2;
-}
-
-.face {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  transform-origin: 0 0;
-}
-
-.h1.w1.l1 {
-  z-index: -1;
-  animation-name: h1w1l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w1l1 {
-  0% {
-    transform: translate(0%, -100%);
-  }
-  14% {
-    transform: translate(-50%, -125%);
-  }
-  28% {
-    transform: translate(0%, -150%);
-  }
-  43% {
-    transform: translate(0%, -200%);
-  }
-  57% {
-    transform: translate(50%, -175%);
-  }
-  71% {
-    transform: translate(0%, -150%);
-  }
-  85% {
-    transform: translate(0%, -100%);
-  }
-  100% {
-    transform: translate(0%, -100%);
-  }
-}
-.h1.w1.l2 {
-  z-index: -1;
-  animation-name: h1w1l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w1l2 {
-  0% {
-    transform: translate(50%, -75%);
-  }
-  14% {
-    transform: translate(50%, -75%);
-  }
-  28% {
-    transform: translate(100%, -100%);
-  }
-  43% {
-    transform: translate(100%, -150%);
-  }
-  57% {
-    transform: translate(100%, -150%);
-  }
-  71% {
-    transform: translate(50%, -125%);
-  }
-  85% {
-    transform: translate(50%, -75%);
-  }
-  100% {
-    transform: translate(50%, -75%);
-  }
-}
-.h1.w1.l3 {
-  z-index: -1;
-  animation-name: h1w1l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w1l3 {
-  0% {
-    transform: translate(100%, -50%);
-  }
-  14% {
-    transform: translate(150%, -25%);
-  }
-  28% {
-    transform: translate(200%, -50%);
-  }
-  43% {
-    transform: translate(200%, -100%);
-  }
-  57% {
-    transform: translate(150%, -125%);
-  }
-  71% {
-    transform: translate(100%, -100%);
-  }
-  85% {
-    transform: translate(100%, -50%);
-  }
-  100% {
-    transform: translate(100%, -50%);
-  }
-}
-.h1.w2.l1 {
-  z-index: -1;
-  animation-name: h1w2l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w2l1 {
-  0% {
-    transform: translate(-50%, -75%);
-  }
-  14% {
-    transform: translate(-100%, -100%);
-  }
-  28% {
-    transform: translate(-100%, -100%);
-  }
-  43% {
-    transform: translate(-100%, -150%);
-  }
-  57% {
-    transform: translate(-50%, -125%);
-  }
-  71% {
-    transform: translate(-50%, -125%);
-  }
-  85% {
-    transform: translate(-50%, -75%);
-  }
-  100% {
-    transform: translate(-50%, -75%);
-  }
-}
-.h1.w2.l2 {
-  z-index: -1;
-  animation-name: h1w2l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w2l2 {
-  0% {
-    transform: translate(0%, -50%);
-  }
-  14% {
-    transform: translate(0%, -50%);
-  }
-  28% {
-    transform: translate(0%, -50%);
-  }
-  43% {
-    transform: translate(0%, -100%);
-  }
-  57% {
-    transform: translate(0%, -100%);
-  }
-  71% {
-    transform: translate(0%, -100%);
-  }
-  85% {
-    transform: translate(0%, -50%);
-  }
-  100% {
-    transform: translate(0%, -50%);
-  }
-}
-.h1.w2.l3 {
-  z-index: -1;
-  animation-name: h1w2l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w2l3 {
-  0% {
-    transform: translate(50%, -25%);
-  }
-  14% {
-    transform: translate(100%, 0%);
-  }
-  28% {
-    transform: translate(100%, 0%);
-  }
-  43% {
-    transform: translate(100%, -50%);
-  }
-  57% {
-    transform: translate(50%, -75%);
-  }
-  71% {
-    transform: translate(50%, -75%);
-  }
-  85% {
-    transform: translate(50%, -25%);
-  }
-  100% {
-    transform: translate(50%, -25%);
-  }
-}
-.h1.w3.l1 {
-  z-index: -1;
-  animation-name: h1w3l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w3l1 {
-  0% {
-    transform: translate(-100%, -50%);
-  }
-  14% {
-    transform: translate(-150%, -75%);
-  }
-  28% {
-    transform: translate(-200%, -50%);
-  }
-  43% {
-    transform: translate(-200%, -100%);
-  }
-  57% {
-    transform: translate(-150%, -75%);
-  }
-  71% {
-    transform: translate(-100%, -100%);
-  }
-  85% {
-    transform: translate(-100%, -50%);
-  }
-  100% {
-    transform: translate(-100%, -50%);
-  }
-}
-.h1.w3.l2 {
-  z-index: -1;
-  animation-name: h1w3l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w3l2 {
-  0% {
-    transform: translate(-50%, -25%);
-  }
-  14% {
-    transform: translate(-50%, -25%);
-  }
-  28% {
-    transform: translate(-100%, 0%);
-  }
-  43% {
-    transform: translate(-100%, -50%);
-  }
-  57% {
-    transform: translate(-100%, -50%);
-  }
-  71% {
-    transform: translate(-50%, -75%);
-  }
-  85% {
-    transform: translate(-50%, -25%);
-  }
-  100% {
-    transform: translate(-50%, -25%);
-  }
-}
-.h1.w3.l3 {
-  z-index: -1;
-  animation-name: h1w3l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h1w3l3 {
-  0% {
-    transform: translate(0%, 0%);
-  }
-  14% {
-    transform: translate(50%, 25%);
-  }
-  28% {
-    transform: translate(0%, 50%);
-  }
-  43% {
-    transform: translate(0%, 0%);
-  }
-  57% {
-    transform: translate(-50%, -25%);
-  }
-  71% {
-    transform: translate(0%, -50%);
-  }
-  85% {
-    transform: translate(0%, 0%);
-  }
-  100% {
-    transform: translate(0%, 0%);
-  }
-}
-.h2.w1.l1 {
-  z-index: -2;
-  animation-name: h2w1l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w1l1 {
-  0% {
-    transform: translate(0%, -50%);
-  }
-  14% {
-    transform: translate(-50%, -75%);
-  }
-  28% {
-    transform: translate(0%, -100%);
-  }
-  43% {
-    transform: translate(0%, -100%);
-  }
-  57% {
-    transform: translate(50%, -75%);
-  }
-  71% {
-    transform: translate(0%, -50%);
-  }
-  85% {
-    transform: translate(0%, -50%);
-  }
-  100% {
-    transform: translate(0%, -50%);
-  }
-}
-.h2.w1.l2 {
-  z-index: -2;
-  animation-name: h2w1l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w1l2 {
-  0% {
-    transform: translate(50%, -25%);
-  }
-  14% {
-    transform: translate(50%, -25%);
-  }
-  28% {
-    transform: translate(100%, -50%);
-  }
-  43% {
-    transform: translate(100%, -50%);
-  }
-  57% {
-    transform: translate(100%, -50%);
-  }
-  71% {
-    transform: translate(50%, -25%);
-  }
-  85% {
-    transform: translate(50%, -25%);
-  }
-  100% {
-    transform: translate(50%, -25%);
-  }
-}
-.h2.w1.l3 {
-  z-index: -2;
-  animation-name: h2w1l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w1l3 {
-  0% {
-    transform: translate(100%, 0%);
-  }
-  14% {
-    transform: translate(150%, 25%);
-  }
-  28% {
-    transform: translate(200%, 0%);
-  }
-  43% {
-    transform: translate(200%, 0%);
-  }
-  57% {
-    transform: translate(150%, -25%);
-  }
-  71% {
-    transform: translate(100%, 0%);
-  }
-  85% {
-    transform: translate(100%, 0%);
-  }
-  100% {
-    transform: translate(100%, 0%);
-  }
-}
-.h2.w2.l1 {
-  z-index: -2;
-  animation-name: h2w2l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w2l1 {
-  0% {
-    transform: translate(-50%, -25%);
-  }
-  14% {
-    transform: translate(-100%, -50%);
-  }
-  28% {
-    transform: translate(-100%, -50%);
-  }
-  43% {
-    transform: translate(-100%, -50%);
-  }
-  57% {
-    transform: translate(-50%, -25%);
-  }
-  71% {
-    transform: translate(-50%, -25%);
-  }
-  85% {
-    transform: translate(-50%, -25%);
-  }
-  100% {
-    transform: translate(-50%, -25%);
-  }
-}
-.h2.w2.l2 {
-  z-index: -2;
-  animation-name: h2w2l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w2l2 {
-  0% {
-    transform: translate(0%, 0%);
-  }
-  14% {
-    transform: translate(0%, 0%);
-  }
-  28% {
-    transform: translate(0%, 0%);
-  }
-  43% {
-    transform: translate(0%, 0%);
-  }
-  57% {
-    transform: translate(0%, 0%);
-  }
-  71% {
-    transform: translate(0%, 0%);
-  }
-  85% {
-    transform: translate(0%, 0%);
-  }
-  100% {
-    transform: translate(0%, 0%);
-  }
-}
-.h2.w2.l3 {
-  z-index: -2;
-  animation-name: h2w2l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w2l3 {
-  0% {
-    transform: translate(50%, 25%);
-  }
-  14% {
-    transform: translate(100%, 50%);
-  }
-  28% {
-    transform: translate(100%, 50%);
-  }
-  43% {
-    transform: translate(100%, 50%);
-  }
-  57% {
-    transform: translate(50%, 25%);
-  }
-  71% {
-    transform: translate(50%, 25%);
-  }
-  85% {
-    transform: translate(50%, 25%);
-  }
-  100% {
-    transform: translate(50%, 25%);
-  }
-}
-.h2.w3.l1 {
-  z-index: -2;
-  animation-name: h2w3l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w3l1 {
-  0% {
-    transform: translate(-100%, 0%);
-  }
-  14% {
-    transform: translate(-150%, -25%);
-  }
-  28% {
-    transform: translate(-200%, 0%);
-  }
-  43% {
-    transform: translate(-200%, 0%);
-  }
-  57% {
-    transform: translate(-150%, 25%);
-  }
-  71% {
-    transform: translate(-100%, 0%);
-  }
-  85% {
-    transform: translate(-100%, 0%);
-  }
-  100% {
-    transform: translate(-100%, 0%);
-  }
-}
-.h2.w3.l2 {
-  z-index: -2;
-  animation-name: h2w3l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w3l2 {
-  0% {
-    transform: translate(-50%, 25%);
-  }
-  14% {
-    transform: translate(-50%, 25%);
-  }
-  28% {
-    transform: translate(-100%, 50%);
-  }
-  43% {
-    transform: translate(-100%, 50%);
-  }
-  57% {
-    transform: translate(-100%, 50%);
-  }
-  71% {
-    transform: translate(-50%, 25%);
-  }
-  85% {
-    transform: translate(-50%, 25%);
-  }
-  100% {
-    transform: translate(-50%, 25%);
-  }
-}
-.h2.w3.l3 {
-  z-index: -2;
-  animation-name: h2w3l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h2w3l3 {
-  0% {
-    transform: translate(0%, 50%);
-  }
-  14% {
-    transform: translate(50%, 75%);
-  }
-  28% {
-    transform: translate(0%, 100%);
-  }
-  43% {
-    transform: translate(0%, 100%);
-  }
-  57% {
-    transform: translate(-50%, 75%);
-  }
-  71% {
-    transform: translate(0%, 50%);
-  }
-  85% {
-    transform: translate(0%, 50%);
-  }
-  100% {
-    transform: translate(0%, 50%);
-  }
-}
-.h3.w1.l1 {
-  z-index: -3;
-  animation-name: h3w1l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w1l1 {
-  0% {
-    transform: translate(0%, 0%);
-  }
-  14% {
-    transform: translate(-50%, -25%);
-  }
-  28% {
-    transform: translate(0%, -50%);
-  }
-  43% {
-    transform: translate(0%, 0%);
-  }
-  57% {
-    transform: translate(50%, 25%);
-  }
-  71% {
-    transform: translate(0%, 50%);
-  }
-  85% {
-    transform: translate(0%, 0%);
-  }
-  100% {
-    transform: translate(0%, 0%);
-  }
-}
-.h3.w1.l2 {
-  z-index: -3;
-  animation-name: h3w1l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w1l2 {
-  0% {
-    transform: translate(50%, 25%);
-  }
-  14% {
-    transform: translate(50%, 25%);
-  }
-  28% {
-    transform: translate(100%, 0%);
-  }
-  43% {
-    transform: translate(100%, 50%);
-  }
-  57% {
-    transform: translate(100%, 50%);
-  }
-  71% {
-    transform: translate(50%, 75%);
-  }
-  85% {
-    transform: translate(50%, 25%);
-  }
-  100% {
-    transform: translate(50%, 25%);
-  }
-}
-.h3.w1.l3 {
-  z-index: -3;
-  animation-name: h3w1l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w1l3 {
-  0% {
-    transform: translate(100%, 50%);
-  }
-  14% {
-    transform: translate(150%, 75%);
-  }
-  28% {
-    transform: translate(200%, 50%);
-  }
-  43% {
-    transform: translate(200%, 100%);
-  }
-  57% {
-    transform: translate(150%, 75%);
-  }
-  71% {
-    transform: translate(100%, 100%);
-  }
-  85% {
-    transform: translate(100%, 50%);
-  }
-  100% {
-    transform: translate(100%, 50%);
-  }
-}
-.h3.w2.l1 {
-  z-index: -3;
-  animation-name: h3w2l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w2l1 {
-  0% {
-    transform: translate(-50%, 25%);
-  }
-  14% {
-    transform: translate(-100%, 0%);
-  }
-  28% {
-    transform: translate(-100%, 0%);
-  }
-  43% {
-    transform: translate(-100%, 50%);
-  }
-  57% {
-    transform: translate(-50%, 75%);
-  }
-  71% {
-    transform: translate(-50%, 75%);
-  }
-  85% {
-    transform: translate(-50%, 25%);
-  }
-  100% {
-    transform: translate(-50%, 25%);
-  }
-}
-.h3.w2.l2 {
-  z-index: -3;
-  animation-name: h3w2l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w2l2 {
-  0% {
-    transform: translate(0%, 50%);
-  }
-  14% {
-    transform: translate(0%, 50%);
-  }
-  28% {
-    transform: translate(0%, 50%);
-  }
-  43% {
-    transform: translate(0%, 100%);
-  }
-  57% {
-    transform: translate(0%, 100%);
-  }
-  71% {
-    transform: translate(0%, 100%);
-  }
-  85% {
-    transform: translate(0%, 50%);
-  }
-  100% {
-    transform: translate(0%, 50%);
-  }
-}
-.h3.w2.l3 {
-  z-index: -3;
-  animation-name: h3w2l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w2l3 {
-  0% {
-    transform: translate(50%, 75%);
-  }
-  14% {
-    transform: translate(100%, 100%);
-  }
-  28% {
-    transform: translate(100%, 100%);
-  }
-  43% {
-    transform: translate(100%, 150%);
-  }
-  57% {
-    transform: translate(50%, 125%);
-  }
-  71% {
-    transform: translate(50%, 125%);
-  }
-  85% {
-    transform: translate(50%, 75%);
-  }
-  100% {
-    transform: translate(50%, 75%);
-  }
-}
-.h3.w3.l1 {
-  z-index: -3;
-  animation-name: h3w3l1;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w3l1 {
-  0% {
-    transform: translate(-100%, 50%);
-  }
-  14% {
-    transform: translate(-150%, 25%);
-  }
-  28% {
-    transform: translate(-200%, 50%);
-  }
-  43% {
-    transform: translate(-200%, 100%);
-  }
-  57% {
-    transform: translate(-150%, 125%);
-  }
-  71% {
-    transform: translate(-100%, 100%);
-  }
-  85% {
-    transform: translate(-100%, 50%);
-  }
-  100% {
-    transform: translate(-100%, 50%);
-  }
-}
-.h3.w3.l2 {
-  z-index: -3;
-  animation-name: h3w3l2;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w3l2 {
-  0% {
-    transform: translate(-50%, 75%);
-  }
-  14% {
-    transform: translate(-50%, 75%);
-  }
-  28% {
-    transform: translate(-100%, 100%);
-  }
-  43% {
-    transform: translate(-100%, 150%);
-  }
-  57% {
-    transform: translate(-100%, 150%);
-  }
-  71% {
-    transform: translate(-50%, 125%);
-  }
-  85% {
-    transform: translate(-50%, 75%);
-  }
-  100% {
-    transform: translate(-50%, 75%);
-  }
-}
-.h3.w3.l3 {
-  z-index: -3;
-  animation-name: h3w3l3;
-  animation-timing-function: ease;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes h3w3l3 {
-  0% {
-    transform: translate(0%, 100%);
-  }
-  14% {
-    transform: translate(50%, 125%);
-  }
-  28% {
-    transform: translate(0%, 150%);
-  }
-  43% {
-    transform: translate(0%, 200%);
-  }
-  57% {
-    transform: translate(-50%, 175%);
-  }
-  71% {
-    transform: translate(0%, 150%);
-  }
-  85% {
-    transform: translate(0%, 100%);
-  }
-  100% {
-    transform: translate(0%, 100%);
-  }
+body .dribbble img {
+  display: block;
+  height: 28px;
 }
 </style>

@@ -13,12 +13,14 @@ import Fieldset from 'primevue/fieldset'
 import CUM from '@/components/UnderMaintenance.vue'
 import NeoFieldset from '@/components/NeoFieldset.vue'
 import NeoFieldsetOpen from '@/components/NeoFieldsetOpen.vue'
+import LoadingScreen from './views/LoadingScreen.vue'
 
 const app = createApp(App)
 app.component('Footer', Footer)
 app.component('NavBar', NavBar)
 app.component('Fieldset', Fieldset)
 app.component('ComponentUM', CUM)
+app.component('Loading', LoadingScreen)
 app.component('NeoFieldset', NeoFieldset)
 app.component('NeoFieldsetOpen', NeoFieldsetOpen)
 app.use(router)

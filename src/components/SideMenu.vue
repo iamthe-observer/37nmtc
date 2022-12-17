@@ -5,13 +5,13 @@
     </div>
 
     <div
-      class="flex flex-col gap-3 sticky top-0 items-start text-left bg-white border-me p-3"
+      class="flex flex-col gap-3 top-0 items-start text-left bg-white border-me p-3"
     >
       <a
         :key="i"
         v-for="(item, i) in model"
         :class="
-          'link link-hover h-auto w-full px-2 py-1 hover:text-white  hover:striped-bg hover:outline hover:outline-[2px] hover:outline-black transition-all stickyer duration-700 ease-out font-Big_Shoulders_Display text-xl flex gap-3 items-center ' +
+          'link link-hover h-auto w-full px-2 py-1 hover:text-white  hover:striped-bg hover:outline hover:outline-[2px] hover:outline-black transition-all duration-700 ease-out font-Big_Shoulders_Display text-xl flex gap-3 items-center ' +
           item.class
         "
         @click="handleClick(i)"
@@ -35,11 +35,13 @@ const selected_link = ref()
 const emit = defineEmits(['title'])
 const props = defineProps<{
   model: MenuItem[]
+  parentNode?: HTMLDivElement
 }>()
 
 const handleClick = (i: number) => {
   emit('title', i)
   selected_link.value = i
+  props.parentNode!.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
 

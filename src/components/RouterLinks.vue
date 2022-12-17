@@ -13,6 +13,7 @@
       <router-link :to="link.route! ? link.route! : ''">
         <label
           tabindex="0"
+          @click="link.route! ? (loading = true) : (loading = false)"
           :class="
             isVisible
               ? 'text-black group-hover:text-white font-Outfit font-bold cursor-pointer px-4 py-2'
@@ -42,9 +43,14 @@
 <script setup lang="ts">
 import { LinkData } from '@/interfaces'
 import { onMounted, ref } from 'vue'
+import { useAppStore } from '@/store/appStore'
+import { storeToRefs } from 'pinia'
 
+const { loading } = storeToRefs(useAppStore())
 // [ ] add library to the links and in the menus there should be e-learning
 // [ ] fix navbar overlaying the scrollbar
+// [x] sroll back to top after clicking on a side link or nav link
+// [ ] add loading screen animation
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
 
 const emit = defineEmits(['isHovered'])

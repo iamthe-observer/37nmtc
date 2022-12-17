@@ -3,7 +3,7 @@
   <div>
     <div
       ref="main_content"
-      :class="`z-10 font-extrabold w-full h-[100%] absolute overflow-hidden`"
+      class="z-10 font-extrabold w-full h-[100%] absolute overflow-hidden inset-0"
     >
       <div class="relative w-full h-full overflow-hidden flex flex-col">
         <Carousel />
@@ -14,15 +14,15 @@
         </div>
 
         <span
-          class="absolute text-[7.5em] text-white font-bold top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-Cyberion drop-shadow-xl"
-          >37NMTC</span
+          class="absolute text-[6.5em] text-white font-bold top-1/2 left-1/2 translate-x-[-50%] translate-y-[-35%] font-Cyberion text-shadow font-outline-2"
+          ><span class="text-primaryclr">37</span>NMTC</span
         >
-      </div>
-    </div>
 
-    <div :class="`z-20 w-full h-[100%] absolute overflow-hidden`">
-      <div class="relative w-full h-full flex flex-col">
-        <Content />
+        <div :class="`z-20 w-full h-[100%] absolute overflow-hidden`">
+          <div class="relative w-full h-full flex flex-col">
+            <Content />
+          </div>
+        </div>
       </div>
     </div>
   </div>
