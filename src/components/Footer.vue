@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-primaryclr w-full min-h-fit border-t-[3px] border-black px-5 py-4 flex gap-8"
+    class="bg-primaryclr w-full min-h-fit border-t-[10px] border-black px-5 py-4 flex gap-8"
   >
     <div
       class="bg-white w-[30%] text-black p-8 border-[3px] border-black m-3 box-box flex items-center flex-col font-Outfit"

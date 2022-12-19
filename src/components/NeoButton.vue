@@ -3,7 +3,7 @@
     ref="btn"
     :class="
       isHovered
-        ? 'bg-white active:bg-trebleclr transition-all duration-300 ease-out btn-box border-[3px] relative border-black text-black px-5 py-1 min-w-[3em] font-black btn-box' +
+        ? 'bg-white active:striped-bg active:text-white transition-all duration-300 ease-out btn-box border-[3px] relative border-black text-black px-5 py-1 min-w-[3em] font-black btn-box' +
           ' ' +
           btn_class
         : 'bg-trebleclr transition-all duration-300 ease-out btn-box border-[3px] relative border-black text-black px-5 py-1 min-w-[3em] btn-box font-black' +

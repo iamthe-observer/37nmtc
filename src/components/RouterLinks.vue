@@ -48,9 +48,9 @@ import { storeToRefs } from 'pinia'
 
 const { loading } = storeToRefs(useAppStore())
 // [ ] add library to the links and in the menus there should be e-learning
-// [ ] fix navbar overlaying the scrollbar
+// [x] fix navbar overlaying the scrollbar
 // [x] sroll back to top after clicking on a side link or nav link
-// [ ] add loading screen animation
+// [x] add loading screen animation
 const props = defineProps<{ links: LinkData[]; isVisible?: boolean }>()
 
 const emit = defineEmits(['isHovered'])

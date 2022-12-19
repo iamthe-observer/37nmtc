@@ -1,7 +1,7 @@
 <template>
   <div
     v-motion-fade
-    class="flex flex-col dotted-bg w-full min-h-full justify-center items-center gap-3"
+    class="flex flex-col striped-bg w-full min-h-full justify-center items-center gap-3"
   >
     <div class="">
       <div class="loader">
@@ -31,12 +31,13 @@
 <style scoped>
 .loader {
   --path: #ffffff;
-  --dot: #7520c4;
+  --dot: #fff800;
   --duration: 3s;
   width: 44px;
   height: 44px;
   position: relative;
 }
+
 .loader:before {
   content: '';
   width: 6px;

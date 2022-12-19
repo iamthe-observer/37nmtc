@@ -30,7 +30,7 @@
             class="card card-compact w-72 bg-base-100 hover:-translate-y-3 rounded-none hover:striped-bg hover:text-white transition-all duration-300 ease-out hover:box-box border-me font-Outfit"
           >
             <figure>
-              <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+              <img :src="src" alt="Shoes" />
             </figure>
             <div class="card-body">
               <h2 class="card-title">Major Captain</h2>
@@ -59,22 +59,8 @@ const srcList = ref([
   'https://picsum.photos/id/10/100/100',
 ])
 const SRCList = ref([
-  'https://picsum.photos/id/11/100/100',
-  'https://picsum.photos/id/12/100/100',
-  'https://picsum.photos/id/13/100/100',
-  'https://picsum.photos/id/14/100/100',
-  'https://picsum.photos/id/15/100/100',
-  'https://picsum.photos/id/16/100/100',
-  'https://picsum.photos/id/17/100/100',
-  'https://picsum.photos/id/18/100/100',
-  'https://picsum.photos/id/19/100/100',
-  'https://picsum.photos/id/21/100/100',
-  'https://picsum.photos/id/22/100/100',
-  'https://picsum.photos/id/23/100/100',
-  'https://picsum.photos/id/24/100/100',
-  'https://picsum.photos/id/25/100/100',
-  'https://picsum.photos/id/26/100/100',
-  'https://picsum.photos/id/27/100/100',
-  'https://picsum.photos/id/28/100/100',
+  '../assets/images/ahmed-sofo.jpg',
+  '../assets/images/maj-addae.jpg',
+  '../assets/images/oduro-ann.jpg',
 ])
 </script>

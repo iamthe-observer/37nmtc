@@ -1,7 +1,10 @@
-import { useElementSize, useIntersectionObserver } from '@vueuse/core'
+import {
+  useElementSize,
+  useIntersectionObserver,
+  useWindowSize,
+} from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, ref, watchEffect } from 'vue'
-import { useWindowSize } from '@vueuse/core'
 import { useRoute } from 'vue-router'
 
 export const useAppStore = defineStore('app', () => {
@@ -22,6 +25,10 @@ export const useAppStore = defineStore('app', () => {
     } else {
       targetIsVisible.value = isIntersecting
     }
+  })
+
+  watchEffect(() => {
+    console.log()
   })
 
   const route = useRoute()

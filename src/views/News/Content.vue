@@ -1,9 +1,24 @@
 <template>
-  <div class="font-Cyberion text-xl w-full">
-    <neo-fieldset></neo-fieldset>
+  <div class="w-full mt-8 mb-5 px-10 relative">
+    <!-- heading -->
+    <h1 class="text-[3em] font-Cheorcy leading-[1em] mt-16 mb-20">
+      News and Reports
+    </h1>
+
+    <h3 class="text-[1em] font-Cheorcy leading-[1em] mb-10">Latest Reports</h3>
+
+    <!-- news Info -->
+    <div class="grid grid-cols-2 gap-4">
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import NeoFieldset from '@/components/NeoFieldset.vue'
+import NewsCard from '@/components/NewsCard.vue'
 </script>

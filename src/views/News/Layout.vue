@@ -1,23 +1,32 @@
 <template>
   <div
+    ref="parent"
     class="overflow-y-scroll text-xl text-black overflow-x-hidden w-full h-full"
   >
     <NavBar />
-    <div class="min-h-fit w-full p-3 pb-12 bg-backgrdclr flex gap-8">
+
+    <!-- content -->
+    <div class="w-full p-3 pb-12 bg-backgrdclr flex gap-8">
       <Content />
     </div>
     <Footer />
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from 'vue'
-import { useTitle } from '@vueuse/core'
+<style scoped>
+.stickyer {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+</style>
 
+<script setup lang="ts">
+import { useTitle } from '@vueuse/core'
+import { onMounted } from 'vue'
 import Content from './Content.vue'
 
 onMounted(() => {
   useTitle('37NMTC | News')
 })
 </script>
-`

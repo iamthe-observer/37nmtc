@@ -9,6 +9,7 @@
         <component :is="Component" />
       </keep-alive>
     </router-view>
+    <!-- [x] work on navbar links... -->
   </div>
   <Loading v-else class="absolute inset-0" />
 </template>
@@ -37,3 +38,5 @@ onMounted(() => {
   useAppStore().setElement(target.value!, 't')
 })
 </script>
+
+<!-- Notes and Comments -->

@@ -33,8 +33,8 @@
       <div
         :class="
           ifOnHome_validate
-            ? 'flex items-center justify-center shadow bg-white w-full'
-            : 'flex items-center justify-center w-full '
+            ? 'flex items-center justify-center shadow bg-white w-full relative'
+            : 'flex items-center justify-center w-full relative'
         "
       >
         <RouterLinks
@@ -43,64 +43,57 @@
           :links="bottom_links"
           :isVisible="ifOnHome_validate"
         />
-      </div>
 
-      <!-- dropdown -->
-      <div
-        v-motion-fade
-        v-if="ifDropDown && isHovered"
-        :class="
-          ifOnHome_validate
-            ? 'w-full h-60 bg-trebleclr text-black absolute -bottom-[243px] flex flex-col items-center justify-center gap-1 border-b-[3px] border-black group'
-            : 'w-full h-60 text-white absolute -bottom-[243px] flex flex-col items-center justify-center gap-1 border-b-[3px] border-t-[3px] border-b-[rgb(24,24,24)] border-t-[rgb(13,13,13)] backdrop-blur-lg bg-[rgba(0,0,0,.3)] group'
-        "
-      >
+        <!-- dropdown -->
         <div
-          class="font-Cyberion text-4xl hover-underline-animation cursor-pointer hover:scale-110 transition-all duration-300 ease-out"
-          v-for="(link, i) in current_links?.dropNames"
-          :key="i"
-          @click="handleCLick(current_links!, i)"
+          v-motion-fade
+          v-if="ifDropDown && isHovered"
+          :class="
+            ifOnHome_validate
+              ? 'w-full p-7 h-fit bg-trebleclr text-black absolute top-[100%] flex flex-col items-center justify-center gap-1 border-y-[3px] border-black group'
+              : 'w-full p-7 h-fit text-white absolute top-[100%] flex flex-col items-center justify-center gap-1 border-b-[3px] border-t-[3px] border-b-[rgb(24,24,24)] border-t-[rgb(13,13,13)] backdrop-blur-lg bg-[rgba(0,0,0,.3)] group'
+          "
         >
-          <router-link
-            @click="loading = true"
-            :class="
-              ifOnHome_validate
-                ? 'text-black hover:text-white hover:font-outline-2'
-                : 'text-white hover:text-trebleclr'
-            "
-            :to="link.to"
-            >{{ link.text }}</router-link
+          <div
+            class="font-Cyberion text-4xl hover-underline-animation cursor-pointer hover:scale-110 transition-all duration-300 ease-out"
+            v-for="(link, i) in current_links?.dropNames"
+            :key="i"
+            @click="handleCLick(current_links!, i)"
           >
+            <router-link
+              @click="loading = true"
+              :class="
+                ifOnHome_validate
+                  ? 'text-black hover:text-white hover:font-outline-2'
+                  : 'text-white hover:text-trebleclr'
+              "
+              :to="link.to"
+              >{{ link.text }}</router-link
+            >
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style></style>
-
 <script setup lang="ts">
 import RouterLinks from '@/components/RouterLinks.vue'
-import { computed, onMounted, ref, watchEffect } from 'vue'
+import { computed, ref } from 'vue'
 import { LinkData } from '@/interfaces'
 import { useAppStore } from '@/store/appStore'
 import { storeToRefs } from 'pinia'
-import { useIntersectionObserver } from '@vueuse/core'
 import { useElementHover } from '@vueuse/core'
 
 const { loading } = storeToRefs(useAppStore())
 
 const nav = ref<HTMLDivElement | null>(null)
-const { target_ref, targetIsVisible } = storeToRefs(useAppStore())
+const { targetIsVisible } = storeToRefs(useAppStore())
 const { current_route } = storeToRefs(useAppStore())
 const current_links = ref<LinkData>()
 const ifDropDown = ref(false)
 
 const isHovered = useElementHover(nav)
-
-// onMounted(() => {
-//   useAppStore().setElement(nav.value!, 'n')
-// })
 
 const handleEmit = (e: LinkData) => {
   ifDropDown.value = e.hasDropdown!
@@ -116,16 +109,6 @@ const ifOnHome_validate = computed(() => {
     return false
   }
 })
-
-// useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
-//   if (isIntersecting) {
-//     setTimeout(() => {
-//       targetIsVisible.value = isIntersecting
-//     }, 200)
-//   } else {
-//     targetIsVisible.value = isIntersecting
-//   }
-// })
 
 const {
   about_content,
