@@ -47,7 +47,10 @@
                 Gazette if name on birth certificate does not correspond with
                 name of WAEC result slip
               </li>
-              <li>Four (4) recent passport size photographs</li>
+              <li>
+                Provide a passport picture with a red background scanned for
+                submitting.
+              </li>
               <li>
                 Students must submit their forms not later than the specified
                 closing date; forms once purchased are not refundable.

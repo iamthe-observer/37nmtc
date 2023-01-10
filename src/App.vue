@@ -30,11 +30,11 @@ function runLoading(time: number) {
 }
 
 watchEffect(() => {
-  if (loading.value === true) runLoading(1000)
+  if (loading.value === true) runLoading(5000)
 })
 
 onMounted(() => {
-  runLoading(2000)
+  runLoading(5000)
   useAppStore().setElement(target.value!, 't')
 })
 </script>

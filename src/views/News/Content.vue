@@ -8,17 +8,20 @@
     <h3 class="text-[1em] font-Cheorcy leading-[1em] mb-10">Latest Reports</h3>
 
     <!-- news Info -->
-    <div class="grid grid-cols-2 gap-4">
+    <!-- <div class="grid grid-cols-2 gap-4">
       <NewsCard />
       <NewsCard />
       <NewsCard />
       <NewsCard />
       <NewsCard />
       <NewsCard />
-    </div>
+    </div> -->
+
+    <threeD />
   </div>
 </template>
 
 <script setup lang="ts">
 import NewsCard from '@/components/NewsCard.vue'
+import threeD from '../../components/3d.vue'
 </script>

@@ -1,9 +1,10 @@
 <template>
   <div
     v-motion-fade
-    class="flex flex-col striped-bg w-full min-h-full justify-center items-center gap-3"
+    class="flex flex-col relative w-full min-h-full justify-center items-center gap-3"
   >
-    <div class="">
+    <img src="@/assets/images/loading.gif" />
+    <!-- <div class="">
       <div class="loader">
         <svg viewBox="0 0 80 80">
           <circle id="test" cx="40" cy="40" r="32"></circle>
@@ -21,8 +22,10 @@
           <rect x="8" y="8" width="64" height="64"></rect>
         </svg>
       </div>
-    </div>
-    <div class="font-Bebas_Neue text-white text-3xl tracking-wider">
+    </div>-->
+    <div
+      class="font-Cyberion text-white absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] tracking-wider text-[4rem] text-shadow font-outline-2"
+    >
       Loading
     </div>
   </div>
