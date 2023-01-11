@@ -4,8 +4,8 @@
       ref="linker"
       :class="
         isVisible
-          ? 'group hover:outline hover:outline-[3px] hover:striped-bg transition-all duration-200 ease-out py-3 px-3'
-          : 'transition-all duration-200 ease-out py-3 px-3'
+          ? 'group hover:bg-gray-200 transition-all duration-200 ease-out py-3 px-3'
+          : 'hover:bg-[#00000034] transition-all duration-200 ease-out py-3 px-3'
       "
       :key="i"
       v-for="(link, i) in props.links"
@@ -16,8 +16,8 @@
           @click="link.route! ? (loading = true) : (loading = false)"
           :class="
             isVisible
-              ? 'text-black group-hover:text-white font-Outfit font-bold cursor-pointer px-4 py-2'
-              : 'text-white hover:text-gray-100 font-Outfit font-bold cursor-pointer px-4 py-2'
+              ? 'text-black font-Outfit font-bold cursor-pointer px-4 py-2'
+              : 'text-white font-Outfit font-bold cursor-pointer px-4 py-2'
           "
           >{{ link.name }}</label
         >

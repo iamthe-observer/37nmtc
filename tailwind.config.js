@@ -399,6 +399,7 @@ module.exports = {
       Cheorcy: ['Cheorcy'],
       Cyberion: ['Cyberion Demo'],
       Harmond: ['Harmond'],
+      Poppins: ['Poppins'],
       sans: [
         'ui-sans-serif',
         'system-ui',
